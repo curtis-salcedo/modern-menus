@@ -1,4 +1,4 @@
-# MERN-Stack Infrastructure
+# Modern-Menus
 
-Clone this repo to provide the starter code for a comprehensive MERN-Stack project including token-based authentication.
+This is a web-based application, open sourced (with ads), that you can use to highlight your offerings.
 
