@@ -3,6 +3,12 @@ import { signUp } from '../../utilities/users-service';
 
 export default class SignUpForm extends Component {
   state = {
+    business: {
+      name: "",
+      city: "",
+      state: "",
+      zip: "",
+    },
     name: '',
     email: '',
     password: '',

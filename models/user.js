@@ -16,7 +16,11 @@ const userSchema = new Schema({
   password: {
     type: String,
     required: true
-  }
+  },
+  business: {  
+    type: Schema.Types.ObjectId,
+    ref: 'Business',
+  },
 }, {
   timestamps: true,
   toJSON: {
