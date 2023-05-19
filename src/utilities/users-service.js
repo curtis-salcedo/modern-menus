@@ -4,6 +4,8 @@
 // for making AJAX requests to the server.
 
 import * as usersAPI from './users-api';
+import * as businessAPI from './business-api';
+import * as menusAPI from './menus-api';
 
 export async function signUp(userData) {
   const token = await usersAPI.signUp(userData);
@@ -41,3 +43,25 @@ export function checkToken() {
   return usersAPI.checkToken()
     .then(dateStr => new Date(dateStr));
 }
+
+export async function createBusiness(formData) {
+  const newBusiness = await businessAPI.create(formData)
+  return newBusiness;
+}
+
+// Create a new menu
+export async function create(menuFormData) {
+  const newMenu = await menusAPI.create(menuFormData)
+  return newMenu
+}
+
+// export async function findBusiness() {
+//   const user = getUser();
+//   if (user) {
+//     const businessData = await businessAPI.getBusiness();
+//     const userBusiness = businessData.find(business => business.user === user._id);
+//     return userBusiness;
+//   } else {
+//     return null;
+//   }
+// }

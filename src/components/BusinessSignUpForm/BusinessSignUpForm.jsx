@@ -1,42 +1,35 @@
-// import { Component } from 'react';
-// import { signUp } from '../../utilities/users-service';
+import React, { useState } from 'react';
+import { createBusiness } from '../../utilities/users-service';
 
-// export default function BusinessSignUpForm(user) {
-//   const [form, setForm] = useState({
-//     name: "",
+export default function BusinessSignUpForm({user}) {
+  const [formData, setForm] = useState({
+    name: "",
+    user: user
+  })
 
-//   })
-//   console.log(user)
+  function handleChange(evt) {
+    const { name, value } = evt.target;
+    setForm({ ...formData, [name]: value })
+  };
 
-//   handleChangeBusiness = (evt) => {
-//     setForm({ ...user, [evt.target]: evt.target.value })
-//   };
-
-//   handleSubmit = async (evt) => {
-//     evt.preventDefault();
-//     try {
-
-//     } catch {
+  async function handleSubmit(evt) {
+    evt.preventDefault();
+    try {
+      await createBusiness(formData);
+    } catch {
     
-//     }
-//   };
+    }
+  };
 
-//   return (
-//     <div>
-//       <div className="form-container">
-//         <form autoComplete="off" onSubmit={handleChange()}>
-//           <label>Business</label>
-//           <input type="text" name="name" value={handleChangeBusiness()} onChange={this.handleChange} required />
-//           <label>City</label>
-//           <input type="text" name="city" value={handleChange()} onChange={this.handleChange} required />
-//           <label>State</label>
-//           <input type="text" name="state" value={handleChange()} onChange={this.handleChange} required />
-//           <label>Zip Code</label>
-//           <input type="text" name="zip" value={handleChange()} onChange={this.handleChange} required />
-//           <button type="submit" disabled>Add Location</button>
-//         </form>
-//       </div>
-//       <p className="error-message">&nbsp;{this.state.error}</p>
-//     </div>
-//   );
-// }
+  return (
+    <div>
+      <div className="business-form-container">
+        <form autoComplete="off" onSubmit={handleSubmit}>
+          <label>Business</label>
+          <input type="text" name="name" value={formData.name} onChange={handleChange} required />
+          <button type="submit">Add Business</button>
+        </form>
+      </div>
+    </div>
+  );
+}

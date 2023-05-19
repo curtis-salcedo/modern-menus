@@ -3,11 +3,20 @@ const Schema = mongoose.Schema;
 
 const businessSchema = new Schema({
   name: { type: String, required: true },
-  address: {
-    city: { type: String, required: true },
-    state: { type: String, required: true },
-    zip: { type: Number, maxLength: 5, required: true },
+  // address: {
+  //   city: { type: String, required: true },
+  //   state: { type: String, required: true },
+  //   zip: { type: Number, maxLength: 5, required: true },
+  // },
+  user: {  
+    type: Schema.Types.ObjectId,
+    ref: 'User',
+    required: true,
   },
+  menu: {
+    type: Schema.Types.ObjectId,
+    ref: 'Menu'
+  }
 }, {
   timestamps: true,
 });
