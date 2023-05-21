@@ -9,7 +9,13 @@ module.exports = {
 
 /*--- Render Funcitons ---*/
 async function index(req, res) {
+  try {
+    const businesses = await Business.find({});
+    res.json(businesses);
 
+  } catch (err) {
+    res.status(400).json({err})
+  }
 }
 
 async function createBusiness(req, res) {

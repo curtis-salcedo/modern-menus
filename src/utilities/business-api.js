@@ -8,7 +8,7 @@ export async function createBusiness(formData) {
 
 // Retrieve user business
 export async function getBusiness() {
-  return sendRequest(`${BASE_URL}/`);
+  return sendRequest(BASE_URL);
 }
 
 export async function index() {

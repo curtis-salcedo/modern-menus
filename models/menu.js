@@ -4,11 +4,13 @@ const Schema = mongoose.Schema;
 const menuSchema = new Schema({
   name: {type: String, required: true},
   category: {type: String, required: true},
-  items: {
+  items: [
+    {
     type: mongoose.Schema.Types.ObjectId,
     ref: 'Item',
     default: null
   },
+],
   business: {
     type: mongoose.Schema.Types.ObjectId,
     ref: 'Business',

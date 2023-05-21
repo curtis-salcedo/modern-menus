@@ -7,10 +7,7 @@ export default function MenuForm({ user, setUser, business, setBusiness }) {
     name: '',
     category: '',
     business: user.business,
-  })
-
-  console.log(business)
-  
+  })  
   
     function handleChange(evt) {
       const { name, value } = evt.target;

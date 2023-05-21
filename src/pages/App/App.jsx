@@ -9,6 +9,7 @@ import NavBar from '../../components/NavBar/NavBar';
 import BusinessSignUpForm from '../../components/BusinessSignUpForm/BusinessSignUpForm';
 import { getBusiness } from '../../utilities/business-api';
 
+
 export default function App() {
   const [user, setUser] = useState(null);
   const [business, setBusiness] = useState(null)
@@ -18,20 +19,17 @@ export default function App() {
       try {
         const userData = await getUser()
         setUser(userData)
-        if (userData.business !== null) {
+        if (userData.business) {
           const businessList = await getBusiness()
-          const userBusiness = businessList.find(business => business._id === user.business);
+          const userBusiness = businessList.find(business => business._id === userData.business);
           setBusiness(userBusiness)
         }
         } catch (err) {
           
       }
     };
-    
     fetchUser();
   }, []);
-
-console.log(business)
 
   return (
     <main className="App">

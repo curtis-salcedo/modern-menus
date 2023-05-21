@@ -4,6 +4,14 @@ const itemsCtrl = require('../../controllers/api/items');
 
 // All paths start with '/api/items'
 
-router.post('/create', itemsCtrl.create)
+// GET /api/menus/get (get all user menus)
+router.get('/get', itemsCtrl.getItems);
+
+// POST /api/items/create (create a new menu)
+router.post('/create', itemsCtrl.create);
+
+// PUT /api/items/update (update user with business)
+router.put('/update', itemsCtrl.update)
+
 
 module.exports = router;
