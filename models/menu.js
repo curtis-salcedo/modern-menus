@@ -7,15 +7,11 @@ const menuSchema = new Schema({
   items: {
     type: mongoose.Schema.Types.ObjectId,
     ref: 'Item',
+    default: null
   },
   business: {
     type: mongoose.Schema.Types.ObjectId,
     ref: 'Business',
-    required: true,
-  },
-  user: {
-    type: mongoose.Schema.Types.ObjectId,
-    ref: 'User',
     required: true,
   }
 }, {

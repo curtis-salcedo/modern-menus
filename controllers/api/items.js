@@ -8,7 +8,7 @@ module.exports = {
 /*--- Render Funcitons ---*/
 async function create(req, res) {
   try {
-    const newItem = await Item.create(req.body);
+    const newItem = await Item.createItem(req.body);
     return newItem;
   } catch (err) {
     res.status(400).json(err);

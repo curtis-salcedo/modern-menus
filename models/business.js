@@ -13,10 +13,13 @@ const businessSchema = new Schema({
     ref: 'User',
     required: true,
   },
-  menu: {
-    type: Schema.Types.ObjectId,
-    ref: 'Menu'
-  }
+  menus: [
+      {
+      type: Schema.Types.ObjectId,
+      ref: 'Menu',
+      default: null
+    },
+  ],
 }, {
   timestamps: true,
 });

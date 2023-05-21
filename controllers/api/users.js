@@ -1,11 +1,24 @@
 const jwt = require('jsonwebtoken');
 const bcrypt = require('bcrypt');
 const User = require('../../models/user');
+const Business = require('../../models/business');
 
 module.exports = {
   create,
   login,
+  update,
 };
+
+async function update(req, res) {
+  try {
+    const user = await User.findById(req.body._id);
+    user.business = req.body.business
+    await user.save()
+    res.json(user)
+  } catch (err) {
+    res.status(400).json(err);
+  }
+}
 
 async function create(req, res) {
   try {

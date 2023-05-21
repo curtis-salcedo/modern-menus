@@ -5,7 +5,7 @@ export default async function sendRequest(url, method = 'GET', payload = null) {
   if (payload) {
     options.headers = { 'Content-Type': 'application/json' };
     options.body = JSON.stringify(payload);
-    console.log(payload)
+    // console.log(payload)
   }
   const token = getToken();
   if (token) {
@@ -14,6 +14,7 @@ export default async function sendRequest(url, method = 'GET', payload = null) {
     options.headers.Authorization = `Bearer ${token}`;
   }
   const res = await fetch(url, options);
+  // console.log(res)
   if (res.ok) return res.json();
   // if res.ok is false send error log
   throw new Error('Bad Request');

@@ -20,6 +20,7 @@ const userSchema = new Schema({
   business: {  
     type: Schema.Types.ObjectId,
     ref: 'Business',
+    default: null,
   },
 }, {
   timestamps: true,

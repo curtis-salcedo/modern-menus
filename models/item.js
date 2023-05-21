@@ -6,10 +6,10 @@ const itemSchema = new Schema({
   emoji: String,
   category: { type: String, required: true },
   price: { type: Number, required: true, default: 0 },
-  image: { type: String },
   menu: {
     type: mongoose.Schema.Types.ObjectId,
     ref: 'Menu',
+    required: true,
   },
 }, {
   timestamps: true

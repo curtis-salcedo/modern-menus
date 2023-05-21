@@ -1,7 +1,8 @@
 import React, { useState } from 'react';
-import { createBusiness } from '../../utilities/users-service';
+import * as businessAPI from '../../utilities/business-api';
+import * as usersAPI from '../../utilities/users-api'
 
-export default function BusinessSignUpForm({user}) {
+export default function BusinessSignUpForm({ user, setUser }) {
   const [formData, setForm] = useState({
     name: "",
     user: user
@@ -15,7 +16,17 @@ export default function BusinessSignUpForm({user}) {
   async function handleSubmit(evt) {
     evt.preventDefault();
     try {
-      await createBusiness(formData);
+      // Establish a business to be created
+      const createdBusiness = await businessAPI.createBusiness(formData, user);
+
+      // Update a user with new created business
+      user.business = createdBusiness._id
+      const updatedUser = { ...user }
+      updatedUser.business = createdBusiness._id
+      
+      // Update current user with same user that has business
+      await usersAPI.updateUser(updatedUser)
+      setUser(updatedUser)
     } catch {
     
     }

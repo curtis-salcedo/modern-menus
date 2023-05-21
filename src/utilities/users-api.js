@@ -12,3 +12,7 @@ export async function login(credentials) {
 export async function checkToken() {
   return sendRequest(`${BASE_URL}/check-token`);
 }
+
+export async function updateUser(user) {
+  return sendRequest(`${BASE_URL}/update`, 'PUT', user)
+}

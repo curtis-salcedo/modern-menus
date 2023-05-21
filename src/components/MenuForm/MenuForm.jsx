@@ -1,29 +1,31 @@
 import React, { useState } from 'react';
-import { create } from '../../utilities/users-service';
+import * as menusAPI from '../../utilities/business-api'
+import { createMenu } from '../../utilities/business-service';
 
 export default function MenuForm({ user, setUser, business, setBusiness }) {
-  
   const [menuFormData, setMenuFormData] = useState({
     name: '',
     category: '',
-    business: business,
-    user: user
+    business: user.business,
   })
+
+  console.log(business)
+  
+  
+    function handleChange(evt) {
+      const { name, value } = evt.target;
+      setMenuFormData({ ...menuFormData, [name]: value })
+    };
 
   async function handleSubmit(evt) {
     evt.preventDefault();
     try {
-      await create(menuFormData);
+      const newMenu = await createMenu(menuFormData);
+      await setBusiness({ ...business, menu: newMenu._id })
     } catch {
     
     }
   };
-  
-  function handleChange(evt) {
-    const { name, value } = evt.target;
-    setMenuFormData({ ...menuFormData, [name]: value })
-  };
-
 
   return (
     <div>
