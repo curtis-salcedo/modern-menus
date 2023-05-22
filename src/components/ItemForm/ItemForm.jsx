@@ -7,9 +7,11 @@ export default function ItemForm({ user, menus }) {
     name: '',
     price: '',
     category: '',
-    menu: '',
+    menu: menus[0],
+    user: user
   })
   const [itemMenuData, setItemMenuData] = useState(null)
+
 
   async function handleItemChange(evt) {
       const { name, value } = evt.target;
@@ -19,13 +21,13 @@ export default function ItemForm({ user, menus }) {
   function handleMenuChange(evt) {
     const { value } = evt.target;
     const menu = menus.find((m) => m._id === value);
+    console.log(menu)
     setItemFormData({ ...itemFormData, menu });
   }
 
   async function handleSubmit(evt) {
     evt.preventDefault();
     try {
-      console.log(itemFormData)
       await itemsAPI.createItem( itemFormData )
       setItemFormData({ 
         name: '',
@@ -33,6 +35,7 @@ export default function ItemForm({ user, menus }) {
         category: '',
         menu: '',
       })
+
     } catch {
       
     }
@@ -43,7 +46,7 @@ export default function ItemForm({ user, menus }) {
     <div>
     <div className="item-form-container">
       <form autoComplete="off" onSubmit={handleSubmit}>
-        <select name="menu" value={itemMenuData} onChange={handleMenuChange} required>
+        <select name="menu" value={itemFormData.Menu} onChange={handleMenuChange} required>
           {menus ? (
             menus.map((m) => (
               <option key={m._id} value={m._id}>

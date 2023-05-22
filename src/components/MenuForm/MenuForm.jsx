@@ -7,6 +7,7 @@ export default function MenuForm({ user, setUser, business, setBusiness }) {
     name: '',
     category: '',
     business: user.business,
+    user: user
   })  
   
     function handleChange(evt) {

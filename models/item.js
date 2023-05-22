@@ -11,6 +11,11 @@ const itemSchema = new Schema({
     ref: 'Menu',
     required: true,
   },
+  user: {  
+    type: Schema.Types.ObjectId,
+    ref: 'User',
+    required: true,
+  },
 }, {
   timestamps: true
 });

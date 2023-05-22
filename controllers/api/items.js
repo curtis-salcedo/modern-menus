@@ -23,6 +23,7 @@ async function update(req, res) {
 async function getItems(req, res) {
   try {
     const items = await Item.find({})
+      .populate('menu')
     res.json(items);
   } catch (err) {
     res.status(400).json({ err });

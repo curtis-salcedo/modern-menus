@@ -8,7 +8,7 @@ import DisplayPage from '../DisplayPage/DisplayPage';
 import NavBar from '../../components/NavBar/NavBar';
 import BusinessSignUpForm from '../../components/BusinessSignUpForm/BusinessSignUpForm';
 import { getBusiness } from '../../utilities/business-api';
-
+import BusinessContext from '../../utilities/BusinessContext';
 
 export default function App() {
   const [user, setUser] = useState(null);
@@ -48,7 +48,7 @@ export default function App() {
             <> 
             <Routes>
               {/* Route components in here */}
-              <Route path="/business" element={<BusinessPage user={user} setUser={setUser} business={business} setBusiness={setBusiness} />} />
+              <Route path="/business" element={<BusinessPage user={user} setUser={setUser} business={business} />} />
               <Route path="/display" element={<DisplayPage />} />
             </Routes>
             </>

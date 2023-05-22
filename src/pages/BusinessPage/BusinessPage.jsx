@@ -1,14 +1,13 @@
 import React, { useState, useContext } from 'react';
+import BusinessContext from '../../utilities/BusinessContext';
 import MenuList from '../../components/MenuList/MenuList'
 // import MenuForm from '../../components/MenuForm/MenuForm'
 import ItemList from '../../components/ItemList/ItemList'
 // import ItemForm from '../../components/ItemForm/ItemForm'
-import BusinessContext from '../../utilities/BusinessContext';
 
 
 export default function BusinessPage({ user }) {
-  const [menus, setMenus] = useState(null)
-  const { business } = useContext(BusinessContext)
+  const { business, setBusiness } = useContext(BusinessContext)
 
   return (
     <>

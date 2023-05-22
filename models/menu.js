@@ -15,7 +15,12 @@ const menuSchema = new Schema({
     type: mongoose.Schema.Types.ObjectId,
     ref: 'Business',
     required: true,
-  }
+  },
+  user: {  
+    type: Schema.Types.ObjectId,
+    ref: 'User',
+    required: true,
+  },
 }, {
   timestamps: true,
 });

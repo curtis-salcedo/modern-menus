@@ -11,7 +11,7 @@ router.get('/get', itemsCtrl.getItems);
 router.post('/create', itemsCtrl.create);
 
 // PUT /api/items/update (update user with business)
-router.put('/update', itemsCtrl.update)
+router.put('/:id', itemsCtrl.update)
 
 
 module.exports = router;
