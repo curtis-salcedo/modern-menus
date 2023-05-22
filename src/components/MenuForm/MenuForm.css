@@ -1,0 +1,14 @@
+.MenuFormContainer {
+  background-color: aqua;
+  display: flex;
+  flex-direction: row;
+}
+
+.MenuFormContainer input {
+  width: 300px;
+}
+
+.MenuFormContainer button {
+  width: 150px;
+  height: 50px;
+}

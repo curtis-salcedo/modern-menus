@@ -47,8 +47,14 @@ export async function getItems() {
   return itemList
 }
 
-// Update menu data
-export async function updateItem() {
-  const updateItem = await itemsAPI.updateItem()
+// Update item data
+export async function updateItem(itemFormData) {
+  const updateItem = await itemsAPI.updateItem(itemFormData)
   return updateItem
+}
+
+// Get item detail
+export async function getItemDetail(itemId) {
+  const itemDetail = await itemsAPI.show(itemId)
+  return itemDetail
 }

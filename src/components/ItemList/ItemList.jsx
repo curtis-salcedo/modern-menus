@@ -1,13 +1,16 @@
 import ItemForm from '../ItemForm/ItemForm'
+import ItemDetail from '../ItemDetail/ItemDetail'
 import BusinessContext from '../../utilities/BusinessContext';
-import { useContext, useState, useEffect } from 'react';
-import { Link, useNavigate } from 'react-router-dom';
-import * as itemsAPI from '../../utilities/items-api'
+import React, { useContext, useState, useEffect } from 'react';
+import { useNavigate } from 'react-router-dom';import * as itemsAPI from '../../utilities/items-api'
+
+import './ItemList.css'
 
 export default function ItemList({ user, menus }) {
   const { business } = useContext(BusinessContext)
   const [items, setItems] = useState(null)
   const [selectedItem, setSelectedItem] = useState(null)
+  const navigate = useNavigate();
 
   useEffect(() => {
     const fetchItems = async () => {
@@ -20,20 +23,22 @@ export default function ItemList({ user, menus }) {
     fetchItems()
   }, [])
 
-  function handleEditItem(item) {
-    setSelectedItem(item)
+  function handleItemDetail(itemId) {
+    setSelectedItem(itemId);
+    console.log(itemId)
+    navigate(`/items/${itemId}`)
   }
 
+
   return (
-    <div className="ItemList">
+    <div className="ItemListContainer">
       <div>Items List Area Below</div>
       { items ?
       <div className="ItemListItems">
         { items.map((item) => (
           <div key={item._id}>
-            <Link to={`/items/${item._id}`}>
-              <div>{item.name}</div>
-            </Link>
+            <div>{item.name}</div>
+              <button onClick={() => handleItemDetail(item._id)}>View Details</button>
           </div>
           ))}
           </div>

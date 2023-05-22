@@ -7,6 +7,7 @@ import BusinessPage from '../BusinessPage/BusinessPage';
 import DisplayPage from '../DisplayPage/DisplayPage';
 import NavBar from '../../components/NavBar/NavBar';
 import BusinessSignUpForm from '../../components/BusinessSignUpForm/BusinessSignUpForm';
+import ItemDetail from '../../components/ItemDetail/ItemDetail';
 import { getBusiness } from '../../utilities/business-api';
 import BusinessContext from '../../utilities/BusinessContext';
 
@@ -44,17 +45,18 @@ export default function App() {
               </>
             )}
             <NavBar user={user} setUser={setUser} />
-            {/* { userBusiness ? */}
+            { business ?
             <> 
             <Routes>
               {/* Route components in here */}
-              <Route path="/business" element={<BusinessPage user={user} setUser={setUser} business={business} />} />
+              <Route path="/items/:itemId" element={<ItemDetail />} ></Route>
+              <Route path="/" element={<BusinessPage user={user} setUser={setUser} />} />
               <Route path="/display" element={<DisplayPage />} />
             </Routes>
             </>
-            {/* : */}
+            : 
             <BusinessSignUpForm user={user} setUser={setUser}/>
-            {/* } */}
+            }
           </>
           :
           <AuthPage setUser={setUser} />

@@ -1,0 +1,16 @@
+.ItemFormContainer {
+  background-color: brown;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+}
+
+.ItemFormContainer input, select {
+  width: 300px;
+}
+
+.ItemFormContainer button {
+  width: 150px;
+  height: 50px;
+}

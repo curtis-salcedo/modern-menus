@@ -22,7 +22,7 @@ export default function MenuList({ user }) {
   }, [])
 
   return (
-    <div className="MenuList">
+    <div  className="MenuListContainer">
       <div>Menu List Area Below</div>
       { menus ?
       <div>
@@ -33,8 +33,8 @@ export default function MenuList({ user }) {
         :
         <div>No Menus Yet</div>
         }
-      <div><MenuForm user={user} /></div>
-      <div><ItemList user={user} menus={menus} /></div>
+      <div className="ItemListContainer"><ItemList user={user} menus={menus} /></div>
+      <div className="MenuFormContainer"><MenuForm user={user} /></div>
     </div>
   );
 }

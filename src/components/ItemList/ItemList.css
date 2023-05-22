@@ -1,0 +1,5 @@
+.ItemListContainer {
+  background-color: rgb(89, 89, 153);
+  display: flex;
+  flex-direction: column;
+}

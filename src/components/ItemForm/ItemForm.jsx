@@ -2,17 +2,18 @@ import React, { useState, useContext } from 'react';
 import * as itemsAPI from '../../utilities/items-api'
 import * as menusAPI from '../../utilities/menus-api'
 
+import './ItemForm.css'
+
 export default function ItemForm({ user, menus }) {
   const [itemFormData, setItemFormData] = useState({
     name: '',
     price: '',
     category: '',
+    description: '',
     menu: menus[0],
     user: user
   })
-  const [itemMenuData, setItemMenuData] = useState(null)
-
-
+  
   async function handleItemChange(evt) {
       const { name, value } = evt.target;
       await setItemFormData({ ...itemFormData, [name]: value})
@@ -33,7 +34,8 @@ export default function ItemForm({ user, menus }) {
         name: '',
         price: '',
         category: '',
-        menu: '',
+        description: '',
+        menu: menus[0],
       })
 
     } catch {
@@ -44,7 +46,7 @@ export default function ItemForm({ user, menus }) {
 
   return (
     <div>
-    <div className="item-form-container">
+    <div className="ItemFormContainer">
       <form autoComplete="off" onSubmit={handleSubmit}>
         <select name="menu" value={itemFormData.Menu} onChange={handleMenuChange} required>
           {menus ? (
@@ -59,8 +61,13 @@ export default function ItemForm({ user, menus }) {
         </select>
         <label>Item Name</label>
         <input type="text" name="name" value={itemFormData.name} onChange={handleItemChange} required />
+
+        <label>Item Description</label>
+        <input type="text" name="description" value={itemFormData.description} onChange={handleItemChange} required />
+
         <label>Item Price</label>
         <input type="text" name="price" value={itemFormData.price} onChange={handleItemChange} required />
+
         <label>Item Category</label>
         <input type="text" name="category" value={itemFormData.category} onChange={handleItemChange} required />
 

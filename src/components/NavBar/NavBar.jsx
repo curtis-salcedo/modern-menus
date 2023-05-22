@@ -9,7 +9,7 @@ export default function NavBar({ user, setUser }) {
 
   return (
     <nav>
-      <Link to="/business">Business Page</Link>
+      <Link to="/">Business Page</Link>
       &nbsp; | &nbsp;
       {/* <Link to="/menus">Menu Page</Link>
       &nbsp; | &nbsp; */}

@@ -5,6 +5,8 @@ import MenuList from '../../components/MenuList/MenuList'
 import ItemList from '../../components/ItemList/ItemList'
 // import ItemForm from '../../components/ItemForm/ItemForm'
 
+import './BusinessPage.css'
+
 
 export default function BusinessPage({ user }) {
   const { business, setBusiness } = useContext(BusinessContext)
@@ -12,12 +14,10 @@ export default function BusinessPage({ user }) {
   return (
     <>
     <h1>Business Name: {business?.name} Owned by: {user.name}</h1>
-    <div> 
+    <div className="BusinessPageContainer"> 
       <div>
         <label>Menus</label>
         <div><MenuList user={user} /></div>
-        {/* <div><MenuForm user={user} business={business} /></div> */}
-        {/* <div><ItemForm user={user} /></div> */}
       </div>
     </div>
     </>

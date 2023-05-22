@@ -12,6 +12,11 @@ export async function getItems() {
 }
 
 // Update user items
-export async function updateItem() {
-  return sendRequest(`${BASE_URL}/update`);
+export async function updateItem(itemFormData) {
+  return sendRequest(`${BASE_URL}/:id/update`, 'PUT', itemFormData);
+}
+
+// Item index for editing, updating and deleting
+export async function show(itemId) {
+  return sendRequest(`${BASE_URL}/${itemId}`);
 }

@@ -2,6 +2,8 @@ import React, { useState } from 'react';
 import * as menusAPI from '../../utilities/business-api'
 import { createMenu } from '../../utilities/business-service';
 
+import './MenuForm.css'
+
 export default function MenuForm({ user, setUser, business, setBusiness }) {
   const [menuFormData, setMenuFormData] = useState({
     name: '',
@@ -27,7 +29,7 @@ export default function MenuForm({ user, setUser, business, setBusiness }) {
 
   return (
     <div>
-      <div className="menu-form-container">
+      <div className="MenuFormContainer">
         <form autoComplete="off" onSubmit={handleSubmit}>
           <label>Menu Name</label>
           <input type="text" name="name" value={menuFormData.name} onChange={handleChange} required />

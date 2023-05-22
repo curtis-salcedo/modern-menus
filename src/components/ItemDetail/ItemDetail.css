@@ -1,0 +1,14 @@
+.ItemDetailContainer {
+  background-color: blueviolet;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 400px;
+  height: 400px;
+}
+
+.ItemDetailContainer input, select {
+  width: 200px;
+  height: 30px;
+}
