@@ -9,7 +9,7 @@
   justify-content: center;
 }
 .BusinessPageMenuButton button {
-
+  border-radius: .25em;
   height: 40px;
   width: 250px;
 }

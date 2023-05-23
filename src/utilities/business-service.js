@@ -17,6 +17,8 @@ export async function index(businessId) {
   return business
 }
 
+
+
 // Create a new menu
 export async function createMenu(menuFormData) {
   const newMenu = await menusAPI.createMenu(menuFormData)
@@ -29,17 +31,25 @@ export async function getMenus() {
   return menuList
 }
 
-// Get menus list
-export async function getMenuDetail(user) {
-  const menusDetail = await menusAPI.show(user)
-  return menusDetail
-}
-
 // Update menu data
 export async function updateMenu() {
   const updateMenu = await menusAPI.updateMenu()
   return updateMenu
 }
+
+// Get menu detail
+export async function getMenuDetail(menuId) {
+  const menuDetail = await menusAPI.show(menuId)
+  return menuDetail
+}
+
+// Delete menu
+export async function deleteMenu(menuId) {
+  const deleteMenu = await menusAPI.deleteMenu(menuId)
+  return deleteMenu
+}
+
+
 
 // Create a new item
 export async function createItem(itemFormData) {

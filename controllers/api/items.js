@@ -16,6 +16,7 @@ async function deleteItem(req, res) {
   try {
     console.log(req.body)
     const item = await Item.findByIdAndDelete(req.body)
+    res.json(item);
     return item;
   } catch (err) {
     res.status(400).json(err)

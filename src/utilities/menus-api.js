@@ -16,7 +16,13 @@ export async function updateMenu() {
   return sendRequest(`${BASE_URL}/update`)
 }
 
-// Menu index for editing, updating and deleting
-export async function show(user) {
-  return sendRequest(`${BASE_URL}/show`);
+// Get details of the menu
+export async function show(menuId) {
+  return sendRequest(`${BASE_URL}/${menuId}`);
+}
+
+// Delete menu
+export async function deleteMenu(menuId) {
+  console.log(menuId)
+  return sendRequest(`${BASE_URL}/${menuId}`, 'DELETE')
 }

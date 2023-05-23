@@ -9,7 +9,6 @@ import './MenuForm.css'
 export default function MenuForm({ user, setUser, business, setBusiness, handleCloseMenuForm }) {
   const [menuFormData, setMenuFormData] = useState({
     name: '',
-    category: '',
     business: user.business,
     user: user
   })  
@@ -27,8 +26,9 @@ export default function MenuForm({ user, setUser, business, setBusiness, handleC
       const newMenu = await createMenu(menuFormData);
       await setBusiness({ ...business, menu: newMenu._id })
     } catch {
-    
+      
     }
+    window.location.reload();
   };
 
 
@@ -45,10 +45,6 @@ export default function MenuForm({ user, setUser, business, setBusiness, handleC
             <div>
               <label>Menu Name</label>
               <input type="text" name="name" value={menuFormData.name} onChange={handleChange} required />
-            </div>
-            <div>
-              <label>Menu Category</label>
-              <input type="text" name="category" value={menuFormData.category} onChange={handleChange} required />
             </div>
           </div>
           <div className='MenuFormButtons'>

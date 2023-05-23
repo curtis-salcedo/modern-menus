@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { useParams } from 'react-router'
+import { useParams, useNavigate } from 'react-router'
 import { getUser } from '../../utilities/users-service';
 import * as itemsAPI from '../../utilities/items-api'
 import * as menusAPI from '../../utilities/menus-api'
@@ -19,7 +19,7 @@ export default function ItemDetail() {
     menu: '',
   })
   const [menus, setMenus] = useState(null)
-
+  const navigate = useNavigate();
   const { itemId } = useParams();
 
   useEffect(() => {
@@ -50,16 +50,18 @@ export default function ItemDetail() {
       await itemsAPI.updateItem( itemFormData )
       setItemFormData( itemFormData )
     } catch (err) {
-
+      console.log('ItemDetail handleSubmit error', err)
     }
   }
 
   async function handleDeleteItem(evt) {
     evt.preventDefault()
     try {
+      console.log(item)
       await itemsAPI.deleteItem(item)
+      navigate('/')
     } catch (err) {
-      console.log('Error deleting the item')
+      console.log('Error deleting the item', err)
     }
   }
 

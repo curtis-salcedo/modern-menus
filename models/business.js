@@ -13,7 +13,7 @@ const businessSchema = new Schema({
       {
       type: Schema.Types.ObjectId,
       ref: 'Menu',
-      default: null
+      default: null,
     },
   ],
 }, {

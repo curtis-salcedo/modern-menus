@@ -12,6 +12,7 @@ import DisplayPage from '../DisplayPage/DisplayPage';
 import NavBar from '../../components/NavBar/NavBar';
 import BusinessSignUpForm from '../../components/BusinessSignUpForm/BusinessSignUpForm';
 import ItemDetail from '../../components/ItemDetail/ItemDetail';
+import MenuDetail from '../../components/MenuDetail/MenuDetail';
 
 
 import './App.css';
@@ -32,6 +33,7 @@ export default function App() {
               <Route path="/:id" element={<BusinessDetail user={user} />} />
               <Route path="/display" element={<DisplayPage />} />
               <Route path="/items/:itemId" element={<ItemDetail />} ></Route>
+              <Route path="/menus/:menuId" element={<MenuDetail />} ></Route>
             </Routes>
             </>
             : 

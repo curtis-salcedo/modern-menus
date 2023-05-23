@@ -1,5 +1,6 @@
 import ItemForm from '../ItemForm/ItemForm';
 import ItemDetail from '../ItemDetail/ItemDetail';
+import MenuForm from '../MenuForm/MenuForm';
 import BusinessContext from '../../utilities/BusinessContext';
 import React, { useContext, useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
@@ -13,13 +14,20 @@ import './ItemList.css'
 export default function ItemList({ user, menus }) {
   const { business, setBusiness } = useContext(BusinessContext)
   const [items, setItems] = useState(null)
-  const [selectedItem, setSelectedItem] = useState(null)
-  const [showItemForm, setShowItemForm] = useState(false)
+  // const [menus, setMenus] = useState(menus)
+  const [ selectedItem, setSelectedItem ] = useState(null)
+  const [ showItemForm, setShowItemForm ] = useState(false)
+  const [ selectedMenu, setSelectedMenu ] = useState(null)
+  const [ showMenuForm, setShowMenuForm ] = useState(false)
+  const [ sort, setSort ] = useState('name')
+  const [ filter, setFilter ] = useState('')
   const navigate = useNavigate();
 
+  console.log(menus)
+
+  // Fetch items that match logged in user
   useEffect(() => {
     const fetchItems = async () => {
-      console.log(menus)
       if (menus) {
         const itemList = await itemsAPI.getItems();
         const userItems = itemList.filter((item) => item.user === user._id)
@@ -29,28 +37,76 @@ export default function ItemList({ user, menus }) {
     fetchItems()
   }, [menus])
 
-
+  // Item event changes
   function handleItemDetail(itemId) {
     setSelectedItem(itemId);
     navigate(`/items/${itemId}`)
   }
 
-  function handleAddItemButton(itemId) {
+  function handleAddItemButton() {
     setShowItemForm(true)
   }
 
-  function handleAddItemClose(itemId) {
+  function handleAddItemClose() {
     setShowItemForm(false)
   }
 
+  // Item table sort and filter functions
+  // Sort by name filter
+  const handleSortEvent = (evt) => {
+    setSort(null)
+  }
+
+  // Sort by filtering different options
+  const handleFilterEvent = (evt) => {
+    setFilter(null)
+  }
+  
+  // Menu specific handles
+  function handleMenuDetail(menuId) {
+    console.log(menuId)
+    setSelectedMenu(menuId);
+    navigate(`/menus/${menuId}`)
+    }
+  
+    function handleShowMenuForm() {
+      setShowMenuForm(true)
+    }
+  
+    function handleCloseMenuForm() {
+      setShowMenuForm(false)
+    }
+
+
   return (
     <div className="ItemListContainer">
-      <div>Items List Area</div>
-
 
       { items ?
       <div className="ItemListItems">
-      <button className="AddItemButton" onClick={handleAddItemButton}> Quick Add Item</button>
+        <div>
+          <button className="AddItemButton" onClick={handleAddItemButton}> Quick Add Item</button>
+          <button className="AddMenuButton" onClick={handleShowMenuForm}>Quick Add Sub-Menu</button>
+        </div>
+        { showMenuForm && (
+          <div className="ShowMenuFormButton"><MenuForm user={user} handleCloseMenuForm={handleCloseMenuForm}  /></div>
+        )}
+
+
+
+
+      { menus ?
+      <div className="MenuListButtonContainer">
+        <button className="MenuListButton">ALL</button>
+        {menus.map((m) => (
+          <div key={m._id}>
+            <button className="MenuListButton" onClick={() => handleMenuDetail(m._id)}>{m.name}</button>
+          </div>
+          ))}
+      </div>
+        :
+        <div>No Menus Yet</div>
+        }
+
 
       { showItemForm && (
         <div><ItemForm user={user} menus={menus} handleAddItemClose={handleAddItemClose} /></div>
@@ -60,7 +116,7 @@ export default function ItemList({ user, menus }) {
           <table className="TableContainer">
             <thead>
               <tr className="ItemRow">
-                <th>Item Category</th>
+                <th>Sub-Menu</th>
                 <th>Item Name</th>
                 <th>Item Description</th>
                 <th>Item Price</th>
@@ -70,11 +126,11 @@ export default function ItemList({ user, menus }) {
             <tbody>
             { items.map((item) => (
               <tr className="ItemRow" key={item._id}>
-                <td>{item.category}</td>
+                <td>{item.menu.name}</td>
                 <td>{item.name}</td>
                 <td> {item.description}</td>
                 <td> ${item.price}</td>
-                <td>
+                <td className='ItemTableEditCell'>
                 <button className="ItemEditButton" onClick={() => handleItemDetail(item._id)}>Edit</button>
               {/* <button className="ItemListButton" onClick={() => handleItemDetail(item._id)}>
               {item.name}
@@ -84,6 +140,7 @@ export default function ItemList({ user, menus }) {
               ))}
             </tbody>
           </table>
+
         </div>
 
       </div>

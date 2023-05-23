@@ -11,7 +11,7 @@ import './BusinessPage.css'
 
 export default function BusinessPage({ user }) {
   const { business, setBusiness } = useContext(BusinessContext)
-  const [ showMenuContainer, setShowMenuContainer ] = useState(false)
+  const [ showMenuContainer, setShowMenuContainer ] = useState(true)
 
   // HANDLES TO SHOW AND HIDE MENU LIST CONTAINER
   function handleShowMenuContainer() {

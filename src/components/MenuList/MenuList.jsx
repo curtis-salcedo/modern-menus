@@ -1,19 +1,25 @@
 import React, { useState, useEffect, useContext } from 'react';
 import BusinessContext from '../../utilities/BusinessContext';
-import ItemList from '../ItemList/ItemList'
 import MenuForm from '../MenuForm/MenuForm'
+import ItemList from '../../components/ItemList/ItemList'
+import MenuDetail from '../../components/MenuDetail/MenuDetail'
 import { getMenus } from '../../utilities/menus-api'
+import { useNavigate } from 'react-router-dom';
+
 import './MenuList.css'
 
 export default function MenuList({ user }) {
   const [menus, setMenus] = useState([])
   const { business, setBusiness } = useContext(BusinessContext)
   const [ showMenuForm, setShowMenuForm ] = useState(false)
+  const [ selectedMenu, setSelectedMenu ] = useState(null)
+
+  const navigate = useNavigate();
 
 
   useEffect(() => {
     const fetchMenus = async () => {
-      if (business.menus) {
+      if (business && business.menus) {
         await ( business )
         const menuList = await getMenus();
         const userMenus = menuList.filter((m) => m.user === user._id)
@@ -31,30 +37,33 @@ export default function MenuList({ user }) {
     setShowMenuForm(false)
   }
 
+  // <button className="MenuEditButton" onDoubleClick={() => handleMenuDetail(menu._id)}>Edit</button>
+  function handleMenuDetail(menuId) {
+    console.log(menuId)
+    setSelectedMenu(menuId);
+    navigate(`/menus/${menuId}`)
+    }
 
-
-  // async function handleAddItemClose(itemId) {
-  //   await setShowMenuContainer(false)
-  // }
 
   return (
     <div  className="MenuListContainer">
 
-      <div>Menu's</div>
+      {/* <div>Sub-Menu's</div>
 
-      <button className="AddMenuButton" onClick={handleShowMenuForm}>Quick Add Menu</button>
+      <button className="AddMenuButton" onClick={handleShowMenuForm}>Quick Add Sub-Menu</button>
+      
         { showMenuForm && (
           <div className="ShowMenuFormButton"><MenuForm user={user} handleCloseMenuForm={handleCloseMenuForm}  /></div>
-        )}
+        )} */}
 
-      { menus ?
+      {/* { menus ?
       <div className="MenuListButtonContainer">
 
         <button className="MenuListButton">ALL</button>
 
         {menus.map((m) => (
           <div key={m._id}>
-            <button className="MenuListButton">{m.name}</button>
+            <button className="MenuListButton" onClick={() => handleMenuDetail(m._id)}>{m.name}</button>
           </div>
           ))}
       </div>
@@ -63,7 +72,7 @@ export default function MenuList({ user }) {
 
         <div>No Menus Yet</div>
 
-        }
+        } */}
 
       <div className="ItemListContainer"><ItemList user={user} menus={menus} /></div>
     </div>

@@ -17,14 +17,14 @@
   flex-direction: row;
   justify-content: center;
   align-items: center;
-  width: 90px;
-  height: 40px;
-  font-size: .75em;
+  height: 2em;
+  font-size: 1em;
 }
 
 .AddMenuButton {
   text-align: center;
   justify-content: center;
+  border-radius: .25em;
   width: 15em;
   height: 2em;
 }

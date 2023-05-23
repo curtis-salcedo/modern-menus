@@ -2,6 +2,7 @@
   background-color: rgb(89, 89, 153);
   display: flex;
   flex-direction: column;
+  width: 90vw;
 }
 
 .ItemListItems {
@@ -11,9 +12,8 @@
 }
 
 .ItemContainer {
-  max-height: 10em;
+  max-height: 25em;
   overflow-y: auto;
-  width: 90vw;
 }
 
 .ItemRow {
@@ -21,7 +21,7 @@
 }
 
 .TableContainer {
-  width: 100%;
+  width: 85vw;
 }
 
 .TableContainer th {
@@ -41,9 +41,14 @@
   height: 2em;
 }
 
+.ItemTableEditCell {
+  border-radius: .25em;
+  font-size: 1em;
+  width: 6em;
+  height: .75em;
+}
+
 .ItemEditButton {
-  text-align: center;
-  justify-content: center;
-  width: 3em;
-  height: 1.5em;
+  font-size: 1em;
+  height: 1.25em;
 }

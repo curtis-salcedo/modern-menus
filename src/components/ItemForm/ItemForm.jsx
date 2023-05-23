@@ -74,13 +74,10 @@ export default function ItemForm({ user, menus, handleAddItemClose }) {
               <input type="text" name="price" value={itemFormData.price} onChange={handleItemChange} required />
             </div>
           </div>
-
-
           <div>
             <label>Item Description</label>
             <textarea type="textarea" name="description" value={itemFormData.description} onChange={handleItemChange} required />
           </div>
-
         </div>
 
         <div className="ItemFormButtons">
