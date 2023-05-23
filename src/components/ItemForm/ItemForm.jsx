@@ -41,8 +41,7 @@ export default function ItemForm({ user, menus }) {
     } catch {
       
     }
-  };
-  
+  };  
 
   return (
     <div>

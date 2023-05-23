@@ -1,12 +1,15 @@
-import { useState } from 'react';
+import { useContext, useState, userEffect } from 'react';
 import * as usersService from '../../utilities/users-service';
+import { getBusiness } from '../../utilities/business-api';
+
+import BusinessContext from '../../utilities/BusinessContext';
 
 export default function LoginForm({ setUser }) {
   const [credentials, setCredentials] = useState({
     email: '',
     password: '',
-    business: ''
   });
+  const { business,setBusiness } = useContext(BusinessContext)
   const [error, setError] = useState('');
 
   function handleChange(evt) {

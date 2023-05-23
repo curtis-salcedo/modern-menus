@@ -15,3 +15,8 @@ export async function getMenus() {
 export async function updateMenu() {
   return sendRequest(`${BASE_URL}/update`)
 }
+
+// Menu index for editing, updating and deleting
+export async function show(user) {
+  return sendRequest(`${BASE_URL}/show`);
+}

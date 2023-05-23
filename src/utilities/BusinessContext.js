@@ -16,10 +16,10 @@ export function BusinessProvider({ children }) {
         if (userData.business) {
           const businessList = await getBusiness()
           const userBusiness = businessList.find(business => business._id === userData.business);
+          // console.log(userBusiness)
           setBusiness(userBusiness)
         }
         } catch (err) {
-          
       }
     };
     

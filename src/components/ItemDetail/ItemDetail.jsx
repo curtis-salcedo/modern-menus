@@ -54,6 +54,14 @@ export default function ItemDetail() {
     }
   }
 
+  async function handleDeleteItem(evt) {
+    evt.preventDefault()
+    try {
+      await itemsAPI.deleteItem(item)
+    } catch (err) {
+      console.log('Error deleting the item')
+    }
+  }
 
   return (
     <div className="ItemDetailContainer">
@@ -82,6 +90,9 @@ export default function ItemDetail() {
         <input type="text" name="category" value={itemFormData.category} onChange={handleChange} required />
 
         <button type="submit">Update Item</button>
+      </form>
+      <form onSubmit={handleDeleteItem}>
+        <button type="submit">Delete Item</button>
       </form>
     </div>
   )

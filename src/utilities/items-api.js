@@ -20,3 +20,9 @@ export async function updateItem(itemFormData) {
 export async function show(itemId) {
   return sendRequest(`${BASE_URL}/${itemId}`);
 }
+
+// Delete item
+export async function deleteItem(itemId) {
+  console.log(itemId)
+  return sendRequest(`${BASE_URL}/${itemId}/delete`, 'DELETE', itemId)
+}

@@ -1,6 +1,8 @@
 import React, { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 import * as menusAPI from '../../utilities/business-api'
 import { createMenu } from '../../utilities/business-service';
+import { getMenus } from '../../utilities/menus-api';
 
 import './MenuForm.css'
 
@@ -11,6 +13,8 @@ export default function MenuForm({ user, setUser, business, setBusiness }) {
     business: user.business,
     user: user
   })  
+  const [ selectedMenu ,setSelectedMenu ] = useState(null)
+  const navigate = useNavigate();
   
     function handleChange(evt) {
       const { name, value } = evt.target;
@@ -27,6 +31,11 @@ export default function MenuForm({ user, setUser, business, setBusiness }) {
     }
   };
 
+
+  async function handleMenuDetail(menuId) {
+    setSelectedMenu(menuId);
+  }
+
   return (
     <div>
       <div className="MenuFormContainer">
@@ -36,6 +45,9 @@ export default function MenuForm({ user, setUser, business, setBusiness }) {
           <label>Menu Category</label>
           <input type="text" name="category" value={menuFormData.category} onChange={handleChange} required />
           <button type="submit">Add Menu</button>
+        </form>
+        <form onSubmit={handleMenuDetail}>
+          <button type="submit">Edit Menus</button>
         </form>
       </div>
     </div>

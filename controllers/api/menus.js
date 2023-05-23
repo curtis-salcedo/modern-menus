@@ -7,9 +7,21 @@ module.exports = {
   index,
   getMenus,
   update,
+  show
 }
 
 /*--- Render Funcitons ---*/
+async function show(req, res) {
+  try {
+    
+    const menu = await Menu.findById( req.params.id )
+    console.log(menu)
+    res.json(menu)
+  } catch (err) {
+    res.status(400).json(err)
+  }
+}
+
 async function update(req, res) {
   try {
     const menu = await Menu.findById(req.body._id);

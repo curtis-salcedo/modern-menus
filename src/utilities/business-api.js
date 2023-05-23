@@ -7,12 +7,12 @@ export async function createBusiness(formData) {
 }
 
 // Retrieve user business
-export async function getBusiness() {
+export function getBusiness() {
   return sendRequest(BASE_URL);
 }
 
-export async function index() {
-  return sendRequest(`${BASE_URL}/index`)
+export async function index(businessId) {
+  return sendRequest(`${BASE_URL}/${businessId}`)
 }
 
 // Create a new item

@@ -10,11 +10,15 @@ router.get('/get', itemsCtrl.getItems);
 // GET /api/items/:id (item detail)
 router.get('/:id', itemsCtrl.show)
 
+// PUT /api/items/update (update user with business)
+router.put('/:id/update', itemsCtrl.update)
+
 // POST /api/items/create (create a new menu)
 router.post('/create', itemsCtrl.create);
 
-// PUT /api/items/update (update user with business)
-router.put('/:id/update', itemsCtrl.update)
+// DELETE /api/items/:id/delete (delete selected item)
+router.delete('/:id/delete', itemsCtrl.deleteItem)
+
 
 
 

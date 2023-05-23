@@ -1,0 +1,22 @@
+.BusinessDetailContainer {
+  display: flex;
+  flex-direction: column;
+}
+
+.BusinessDetailTitle {
+  font-size: 8em;
+}
+
+.BusinessMenusContainer {
+  display: flex;
+  flex-flow: row wrap;
+}
+
+.BusinessDetailMenuCard {
+  background-color: white;
+  display: flex;
+  flex-direction: column;
+  margin: 1em;
+  height: 400px;
+  width: 250px;
+}

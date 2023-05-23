@@ -2,15 +2,18 @@ import ItemForm from '../ItemForm/ItemForm'
 import ItemDetail from '../ItemDetail/ItemDetail'
 import BusinessContext from '../../utilities/BusinessContext';
 import React, { useContext, useState, useEffect } from 'react';
-import { useNavigate } from 'react-router-dom';import * as itemsAPI from '../../utilities/items-api'
+import { useNavigate } from 'react-router-dom';
+import * as itemsAPI from '../../utilities/items-api'
+import * as menusAPI from '../../utilities/menus-api'
 
 import './ItemList.css'
 
 export default function ItemList({ user, menus }) {
-  const { business } = useContext(BusinessContext)
+  const { business, setBusiness } = useContext(BusinessContext)
   const [items, setItems] = useState(null)
   const [selectedItem, setSelectedItem] = useState(null)
   const navigate = useNavigate();
+  // Need to bring in menus
 
   useEffect(() => {
     const fetchItems = async () => {
@@ -23,9 +26,9 @@ export default function ItemList({ user, menus }) {
     fetchItems()
   }, [])
 
+
   function handleItemDetail(itemId) {
     setSelectedItem(itemId);
-    console.log(itemId)
     navigate(`/items/${itemId}`)
   }
 

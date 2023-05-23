@@ -25,7 +25,6 @@ export function logOut() {
 export function getToken() {
   // getItem will return null if the key does not exists
   const token = localStorage.getItem('token');
-
   if (!token) return null;
   const payload = JSON.parse(atob(token.split('.')[1]));
   return token;

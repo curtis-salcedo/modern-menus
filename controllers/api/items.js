@@ -6,11 +6,22 @@ module.exports = {
   create,
   getItems,
   update,
-  show
+  show,
+  deleteItem
 }
 
 
 /*--- Render Funcitons ---*/
+async function deleteItem(req, res) {
+  try {
+    console.log(req.body)
+    const item = await Item.findByIdAndDelete(req.body)
+    return item;
+  } catch (err) {
+    res.status(400).json(err)
+  }
+}
+
 async function show(req, res) {
   try {
     console.log(req.params.id)
