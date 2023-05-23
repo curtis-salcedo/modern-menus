@@ -10,9 +10,8 @@ import ItemForm from '../ItemForm/ItemForm'
 
 import './BusinessDetail.css'
 
-export default function ItemDetail() {
+export default function BusinessDetail() {
   const [user, setUser] = useState(getUser())
-  const [item, setItem] = useState(null)
   const [businessFormData, setBusinessFormData] = useState({
     name: '',
     price: '',
@@ -53,14 +52,12 @@ export default function ItemDetail() {
           menus.map((m) => (
             <div className="BusinessDetailMenuCard" key={m._id}>{m.name}
             <div>{m.category}</div>
-            {/* <div><ItemList /></div> */}
             </div>
           ))
         : 
           <div>Loading Menus...</div>
         }
       </div>
-      <div><ItemForm user={user} menus={menus} /></div>
     </div>
   );
   

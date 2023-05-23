@@ -3,3 +3,47 @@
   display: flex;
   flex-direction: column;
 }
+
+.ItemListItems {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.ItemContainer {
+  max-height: 10em;
+  overflow-y: auto;
+  width: 90vw;
+}
+
+.ItemRow {
+  height: .1em;
+}
+
+.TableContainer {
+  width: 100%;
+}
+
+.TableContainer th {
+  text-align: left;
+  border-bottom: .25em solid var(--primary-color);
+}
+
+.TableContainer td {
+  text-align: left;
+  border-bottom: .15em solid var(--primary-color);
+}
+
+.AddItemButton {
+  text-align: center;
+  justify-content: center;
+  width: 15em;
+  height: 2em;
+}
+
+.ItemEditButton {
+  text-align: center;
+  justify-content: center;
+  width: 3em;
+  height: 1.5em;
+}

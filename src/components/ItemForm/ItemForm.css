@@ -1,16 +1,49 @@
 .ItemFormContainer {
-  background-color: brown;
+  display: flex;
+  flex-direction: column;
+  border: solid .15em var(--primary-color);
+  border-radius: .5em;
+  margin-bottom: 1em;
+}
+
+.ItemFormContainer form {
+  display: flex;
+  flex-direction: column;
+  width: 40em;
+}
+.ItemFormContainer form label {
+  font-size: 1em;
+  justify-content: center;
+}
+
+.ItemFormSelect select {
+  border-radius: .5vmin;
+  text-align: center;
+}
+
+.ItemFormInputs  {
   display: flex;
   flex-direction: row;
-  justify-content: center;
-  align-items: center;
+  justify-content: space-evenly;
 }
 
-.ItemFormContainer input, select {
-  width: 300px;
+.ItemFormInputs input {
+  border-radius: .5vmin;
+  height: 2em;
+  width: 15em;
 }
 
-.ItemFormContainer button {
-  width: 150px;
-  height: 50px;
+.ItemFormInputs textarea {
+  border-radius: .5vmin;
+  height: 7em;
+  width: 25em;
+  max-height: 7em;
+  max-width: 25em;
+  min-height: 7em;
+  min-width: 25em;
+}
+
+.ItemFormButtons button {
+  width: 6em;
+  height: 2em;
 }

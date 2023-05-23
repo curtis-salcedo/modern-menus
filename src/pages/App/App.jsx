@@ -23,23 +23,15 @@ export default function App() {
     <main className="App">
       { user ?
           <> 
-            <div>User Name: {user.name}</div>
-            <div>User ID: {user._id}</div>
-            {/* { business && (
-              <>
-              <div>Business ID: {business._id}</div>
-              <div>Business Name: {business.name}</div>
-              </>
-            )} */}
             <NavBar user={user} setUser={setUser} />
             { user.business ?
             <> 
             <Routes>
               {/* Route components in here */}
-              <Route path="/items/:itemId" element={<ItemDetail />} ></Route>
               <Route path="/" element={<BusinessPage user={user} />} />
-              <Route path="/business/:id" element={<BusinessDetail user={user} />} />
+              <Route path="/:id" element={<BusinessDetail user={user} />} />
               <Route path="/display" element={<DisplayPage />} />
+              <Route path="/items/:itemId" element={<ItemDetail />} ></Route>
             </Routes>
             </>
             : 

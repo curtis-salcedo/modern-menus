@@ -4,7 +4,7 @@ import * as menusAPI from '../../utilities/menus-api'
 
 import './ItemForm.css'
 
-export default function ItemForm({ user, menus }) {
+export default function ItemForm({ user, menus, handleAddItemClose }) {
   const [itemFormData, setItemFormData] = useState({
     name: '',
     price: '',
@@ -37,42 +37,57 @@ export default function ItemForm({ user, menus }) {
         description: '',
         menu: menus[0],
       })
-
-    } catch {
-      
+      handleAddItemClose();
+    } catch (err) {
+      console.log('ItemForm Error', err)
     }
+    window.location.reload();
   };  
 
+
   return (
-    <div>
     <div className="ItemFormContainer">
       <form autoComplete="off" onSubmit={handleSubmit}>
-        <select name="menu" value={itemFormData.Menu} onChange={handleMenuChange} required>
-          {menus ? (
-            menus.map((m) => (
-              <option key={m._id} value={m._id}>
-                {m.name}
-              </option>
-            ))
-          ) : (
-            <option>No Menus Made</option>
-          )}
-        </select>
-        <label>Item Name</label>
-        <input type="text" name="name" value={itemFormData.name} onChange={handleItemChange} required />
+        <div className="ItemFormSelect">
+          <label>Menu</label>
+          <select name="menu" value={itemFormData.Menu} onChange={handleMenuChange} required>
+            {menus ? (
+              menus.map((m) => (
+                <option key={m._id} value={m._id}>
+                  {m.name}
+                </option>
+              ))
+              ) : (
+                <option>No Menus Made</option>
+                )}
+          </select>
+        </div>
 
-        <label>Item Description</label>
-        <input type="text" name="description" value={itemFormData.description} onChange={handleItemChange} required />
+        <div className="ItemFormInputs">
+          <div>
+            <div>
+              <label>Item Name</label>
+              <input type="text" name="name" value={itemFormData.name} onChange={handleItemChange} required />
+            </div>
+            <div>
+              <label>Item Price</label>
+              <input type="text" name="price" value={itemFormData.price} onChange={handleItemChange} required />
+            </div>
+          </div>
 
-        <label>Item Price</label>
-        <input type="text" name="price" value={itemFormData.price} onChange={handleItemChange} required />
 
-        <label>Item Category</label>
-        <input type="text" name="category" value={itemFormData.category} onChange={handleItemChange} required />
+          <div>
+            <label>Item Description</label>
+            <textarea type="textarea" name="description" value={itemFormData.description} onChange={handleItemChange} required />
+          </div>
 
-        <button type="submit">Add Item</button>
+        </div>
+
+        <div className="ItemFormButtons">
+          <button type="submit">Add Item</button>
+          <button onClick={handleAddItemClose}>Cancel</button>
+        </div>
       </form>
     </div>
-  </div>
   );
 }

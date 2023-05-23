@@ -4,7 +4,6 @@ const Schema = mongoose.Schema;
 const itemSchema = new Schema({
   name: { type: String, required: true },
   emoji: String,
-  category: { type: String, required: true },
   price: { type: Number, required: true, default: 0 },
   description: { type: String, default: 'No Description'},
   menu: {

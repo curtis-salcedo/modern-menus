@@ -3,6 +3,8 @@ import * as businessAPI from '../../utilities/business-api';
 import * as usersAPI from '../../utilities/users-api'
 import * as menusAPI from '../../utilities/menus-api'
 
+import './BusinessSignUpForm.css'
+
 export default function BusinessSignUpForm({ user, setUser }) {
   const [formData, setForm] = useState({
     name: "",
@@ -51,12 +53,24 @@ export default function BusinessSignUpForm({ user, setUser }) {
 
   return (
     <div>
-      <div className="business-form-container">
-        <form autoComplete="off" onSubmit={handleSubmit}>
-          <label>Business</label>
-          <input type="text" name="name" value={formData.name} onChange={handleChange} required />
-          <button type="submit">Add Business</button>
+      <div className="BusinessFormContainer">
+
+          <div className="BusinessFormUser">
+            <p>
+              Welcome, {user.name}, please enter your business information to get started!
+            </p>
+          </div>
+
+          <form autoComplete="off" onSubmit={handleSubmit}>
+          <div className="BusinessFormInput">
+            <label>Business Name</label>
+            <input type="text" name="name" value={formData.name} onChange={handleChange} placeholder='Modern Menus' required />
+          </div>
+          <div className="BusinessFormButton">
+            <button type="submit">Register Business</button>
+          </div>
         </form>
+
       </div>
     </div>
   );

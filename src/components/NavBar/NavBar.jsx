@@ -3,6 +3,8 @@ import * as userService from '../../utilities/users-service';
 import { useContext } from 'react';
 import BusinessContext from '../../utilities/BusinessContext';
 
+import './NavBar.css'
+
 export default function NavBar({ user, setUser }) {
   function handleLogOut() {
     userService.logOut();
@@ -12,20 +14,32 @@ export default function NavBar({ user, setUser }) {
   const { business } = useContext(BusinessContext)
 
   return (
-<nav>
-      <Link to="/">Business Page</Link>
-      &nbsp; | &nbsp;
-      {business && (
-        <>
-          <Link to={`/business/${business._id}`}>Business Details</Link>
-          &nbsp; | &nbsp;
-        </>
-      )}
-      <Link to="/display">Display Page</Link>
-      &nbsp; | &nbsp;
-      <span>Welcome, {user.name}</span>
-      &nbsp; | &nbsp;
-      &nbsp;&nbsp;<Link to="" onClick={handleLogOut}>Log Out</Link>
-    </nav>
+  <nav>
+
+    <div className="NavBarContainer">
+
+      <div className="NavBarLogo">Modern Menus</div>
+
+      <div className="NavBarLinks">
+        {business && (
+          <>
+            <div>
+              <Link to="/">Business Page</Link>
+            </div>
+            <div>
+              <Link to={`/${business._id}`}>Business Details</Link>
+            </div>
+          </>
+        )}
+        {/* <div>
+          <Link to="/display">Display Page</Link>
+        </div> */}
+        <div>
+          <Link to="" onClick={handleLogOut}>Log Out</Link>
+        </div>
+      </div>
+
+      </div>
+  </nav>
   );
 }

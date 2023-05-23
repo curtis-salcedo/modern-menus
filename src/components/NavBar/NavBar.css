@@ -1,0 +1,34 @@
+.NavBarContainer {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  height: 50px;
+}
+
+.NavBarLogo {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-left: 20px;
+  height: 45px;
+  width: auto;
+  font-size: 2em;
+}
+
+.NavBarLinks {
+  display: flex;
+  align-items: center;
+}
+
+.NavBarLinks a {
+  background-color: var(--secondary-coloor);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-right: .75em;
+  border: 2px solid var(--primary-color);
+  border-radius: 2vmin;
+  width: 125px;
+  height: 35px;
+  text-decoration: none;
+}

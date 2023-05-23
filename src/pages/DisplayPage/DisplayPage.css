@@ -1,0 +1,36 @@
+.DisplayPageContainer {
+  background-color: green;
+  display: flex;
+  flex-direction: column;
+  height: 80vh
+}
+
+.DisplayPageMenu {
+  background-color: white;
+  display: flex;
+  justify-content: space-around;
+  flex-direction: row;
+  flex-grow: 1;
+  height: 80vh
+}
+
+.DisplayMenuListContainer {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.DisplayRow {
+  display: flex;
+  justify-content: center;
+}
+
+.DisplayRowItems {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+}
+
+.DisplayVideoAd {
+  justify-content: baseline;
+}

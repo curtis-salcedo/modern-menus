@@ -1,5 +1,15 @@
 .BusinessPageContainer {
-  background-color: white;
+  background-color: cyan;
   display: flex;
   flex-direction: column;
+}
+
+.BusinessPageMenuButton {
+  display: flex;
+  justify-content: center;
+}
+.BusinessPageMenuButton button {
+
+  height: 40px;
+  width: 250px;
 }

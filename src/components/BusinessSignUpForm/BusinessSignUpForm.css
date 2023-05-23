@@ -1,0 +1,51 @@
+.BusinessFormContainer {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  border: 2px solid var(--secondary-color);
+  border-radius: 2vmin;
+  margin-top: 5em;
+  height: 400px;
+}
+
+.BusinessFormUser {
+  display: flex;
+  align-items: center;
+  width: 300px;
+}
+
+.BusinessFormContainer form {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  width: 300px;
+}
+
+.BusinessFormContainer input{
+
+}
+
+.BusinessFormButton {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.BusinessFormButton button {
+  height: 50px;
+  width: 200px
+}
+
+
+.BusinessFormContainer p {
+  text-align: left;
+  font-size: 1.5em;
+}
+
+.BusinessFormInput {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+  align-items: center;
+}

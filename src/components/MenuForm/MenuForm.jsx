@@ -6,7 +6,7 @@ import { getMenus } from '../../utilities/menus-api';
 
 import './MenuForm.css'
 
-export default function MenuForm({ user, setUser, business, setBusiness }) {
+export default function MenuForm({ user, setUser, business, setBusiness, handleCloseMenuForm }) {
   const [menuFormData, setMenuFormData] = useState({
     name: '',
     category: '',
@@ -37,19 +37,31 @@ export default function MenuForm({ user, setUser, business, setBusiness }) {
   }
 
   return (
-    <div>
-      <div className="MenuFormContainer">
+    <div className="MenuFormContainer">
+
         <form autoComplete="off" onSubmit={handleSubmit}>
-          <label>Menu Name</label>
-          <input type="text" name="name" value={menuFormData.name} onChange={handleChange} required />
-          <label>Menu Category</label>
-          <input type="text" name="category" value={menuFormData.category} onChange={handleChange} required />
-          <button type="submit">Add Menu</button>
+
+          <div className="MenuFormInputs">
+            <div>
+              <label>Menu Name</label>
+              <input type="text" name="name" value={menuFormData.name} onChange={handleChange} required />
+            </div>
+            <div>
+              <label>Menu Category</label>
+              <input type="text" name="category" value={menuFormData.category} onChange={handleChange} required />
+            </div>
+          </div>
+          <div className='MenuFormButtons'>
+            <button type="submit">Add Menu</button>
+            <button onClick={handleCloseMenuForm}>Cancel</button>
+          </div>
+          
         </form>
-        <form onSubmit={handleMenuDetail}>
-          <button type="submit">Edit Menus</button>
-        </form>
+
+          <button onSubmit={handleMenuDetail} type="submit">FIX BUTTON TO EDIT MENU!</button>
+      <div>
       </div>
+
     </div>
   );
 }
