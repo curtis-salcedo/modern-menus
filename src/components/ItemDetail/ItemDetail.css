@@ -1,5 +1,6 @@
 .ItemDetailContainer {
-  background-color: blueviolet;
+  border: solid .25vmin var(--main-color);
+  padding: 1vmin;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -11,4 +12,7 @@
 .ItemDetailContainer input, select {
   width: 200px;
   height: 30px;
+  margin-top: 1vmin;
+  border: solid .25vmin var(--main-color);
+  width: 75%;
 }

@@ -31,23 +31,12 @@ export default function DisplayPage({ user, business }) {
     }
   }
 
-  // Add video to use
-  const [ videoId, setVideoId ] = useState('CKgKPGBa9EQ')
-
-  const opts = {
-    height: 'auto',
-    width: 'auto',
-    playerVars: {
-      // https://developers.google.com/youtube/player_parameters
-      autoplay: 1,
-    },
-  }
   return (
     <>
     <div className="DisplayPageContainer">
-      <div>
+      {/* <div>
         <PreviewPage user={user} business={business} />
-      </div>
+      </div> */}
     </div>
     </>
   );

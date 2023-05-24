@@ -71,11 +71,11 @@ export default function MenuDetail() {
         <label>Sub-Menu Name</label>
         <input type="text" name="name" value={menuFormData.name} onChange={handleChange} required />
 
-        <button type="submit">Update Sub-Menu</button>
+        <button type="AddItemButton">Update Sub-Menu</button>
       </form>
 
       <form onSubmit={handleDeleteMenu}>
-        <button type="submit">Delete Item</button>
+        <button type="AddItemButton">Delete Item</button>
       </form>
     </div>
   )

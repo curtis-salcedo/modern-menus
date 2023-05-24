@@ -1,0 +1,12 @@
+.MenuDetailContainer  {
+  border: solid .25vmin var(--main-color);
+  padding: 1vmin;
+}
+.MenuDetailContainer input {
+  margin-top: 1vmin;
+  border: solid .25vmin var(--main-color);
+  width: 75%;
+}
+.MenuDetailContainer button {
+  background-color: white;
+}

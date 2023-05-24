@@ -89,10 +89,10 @@ export default function ItemDetail() {
         <label>Item Price</label>
         <input type="text" name="price" value={itemFormData.price} onChange={handleChange} required />
 
-        <button type="submit">Update Item</button>
+        <button type="AddItemButton">Update Item</button>
       </form>
       <form onSubmit={handleDeleteItem}>
-        <button type="submit">Delete Item</button>
+        <button type="AddItemButton">Delete Item</button>
       </form>
     </div>
   )
