@@ -45,7 +45,6 @@ export default function DisplayPage({ user, business }) {
   return (
     <>
     <div className="DisplayPageContainer">
-      <h1>Display Page</h1>
       <div>
         <PreviewPage user={user} business={business} />
       </div>
