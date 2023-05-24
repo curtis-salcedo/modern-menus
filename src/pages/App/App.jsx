@@ -28,9 +28,10 @@ export default function App() {
               {/* Route components in here */}
               <Route path="/" element={<BusinessPage user={user} />} />
               <Route path="/:id" element={<BusinessDetail user={user} />} />
-              <Route path="/display" element={<DisplayPage />} />
+              <Route path="/display" element={<DisplayPage user={user} />} />
               <Route path="/items/:itemId" element={<ItemDetail />} ></Route>
               <Route path="/menus/:menuId" element={<MenuDetail />} ></Route>
+              <Route path="/displays/:displaysId" element={<MenuDetail />} ></Route>
             </Routes>
             </>
             : 

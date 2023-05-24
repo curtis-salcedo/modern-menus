@@ -87,11 +87,9 @@ export async function deleteItem(itemId) {
 export function generateTemplate() {
   const template = [];
   for (let i = 0; i <= 11; i++) {
-
     const item = {
       displayItems: '',
     }
-
     template.push(item)
   }
   return template;
@@ -102,3 +100,16 @@ export async function createTemplate(templateFormData) {
   const newTemplate = await displaysAPI.createTemplate(templateFormData)
   return newTemplate
 }
+
+// Get template
+export async function getTemplate() {
+  const userTemplate = await displaysAPI.getTemplate()
+  return userTemplate
+}
+
+// Update template data
+export async function updateTemplate(templateData) {
+  const template = await itemsAPI.updateItem(templateData)
+  return template
+}
+

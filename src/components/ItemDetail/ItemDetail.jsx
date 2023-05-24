@@ -68,7 +68,7 @@ export default function ItemDetail() {
   return (
     <div className="ItemDetailContainer">
       <form autoComplete="off" onSubmit={handleSubmit}>
-        <select name="menu" value={itemFormData.Menu} onChange={handleChange} required>
+        {/* <select name="menu" value={itemFormData.Menu} onChange={handleChange} required>
           {menus ? (
             menus.map((m) => (
               <option key={m._id} value={m._id}>
@@ -78,7 +78,7 @@ export default function ItemDetail() {
           ) : (
             <option>No Menus Made</option>
           )}
-        </select>
+        </select> */}
         <label>Item Name</label>
         <input type="text" name="name" value={itemFormData.name} onChange={handleChange} required />
 
@@ -87,9 +87,6 @@ export default function ItemDetail() {
 
         <label>Item Price</label>
         <input type="text" name="price" value={itemFormData.price} onChange={handleChange} required />
-        
-        <label>Item Category</label>
-        <input type="text" name="category" value={itemFormData.category} onChange={handleChange} required />
 
         <button type="submit">Update Item</button>
       </form>

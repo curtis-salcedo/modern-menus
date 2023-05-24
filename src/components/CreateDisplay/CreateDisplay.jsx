@@ -1,39 +1,31 @@
-import ItemForm from '../ItemForm/ItemForm';
-import ItemDetail from '../ItemDetail/ItemDetail';
-import MenuForm from '../MenuForm/MenuForm';
-import PreviewPage from '../PreviewPage/PreviewPage';
+import ItemList from '../ItemList/ItemList';
 import BusinessContext from '../../utilities/BusinessContext';
 import React, { useContext, useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import * as itemsAPI from '../../utilities/items-api';
 import * as menusAPI from '../../utilities/menus-api';
-export default function CreateDisplay({ user }) {
-  
+import Draggable, {DraggableCore} from 'react-draggable';
+
+export default function PreviewPage({ items, setItems, menus, user }) {
   const { business, setBusiness } = useContext(BusinessContext)
-  const [ sort, setSort ] = useState('name')
-  const [ filter, setFilter ] = useState('')
-  const [ items, setItems ] = useState(null)
   const navigate = useNavigate();
-
-
+  console.log(business, user)
   // Fetch items that match logged in user
   useEffect(() => {
     const fetchItems = async () => {
-      if (business) {
+      if (menus) {
         const itemList = await itemsAPI.getItems();
         const userItems = itemList.filter((item) => item.user === user._id)
+        console.log(userItems)
         setItems(userItems)
       }
     }
     fetchItems()
-  }, [])
-
-  
+    console.log(items)
+  }, [business])
 
   return (
-    <div className="PreviewContainer">
-      PREVIEW PAGE AREA
-      <button className="GenerateMenuButton">Exit Preview</button>
+    <div className="CreateDisplayContainer">
       { items ?
           <table className="TableContainer">
             <thead>
@@ -56,7 +48,7 @@ export default function CreateDisplay({ user }) {
       :
       <div>Add items to view</div>
       }
-
+        <button className="GenerateMenuButton">Generate Menu</button>
     </div>
   );
 }

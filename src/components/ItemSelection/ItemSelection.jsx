@@ -77,14 +77,8 @@ export default function ItemSelection({ user, menus, itemList, handleCloseItemLi
 
   return (
     <div className="ItemListContainer">
-
       { itemList ?
       <div className="ItemListItems">
-
-      {/* { showItemForm && (
-        <div><ItemForm user={user} menus={menus} handleAddItemClose={handleAddItemClose} /></div>
-      )} */}
-
         <div className="ItemSelectionContainer">
         <button onClick={handleCloseItemList}>Close</button>
           <table className="">
@@ -111,17 +105,11 @@ export default function ItemSelection({ user, menus, itemList, handleCloseItemLi
               ))}
             </tbody>
           </table>
-
         </div>
-
       </div>
-
       :
-
       <div>Add item to display</div>
-
       }
-
     </div>
   );
 }

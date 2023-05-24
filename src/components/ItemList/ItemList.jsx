@@ -2,6 +2,7 @@ import ItemForm from '../ItemForm/ItemForm';
 import ItemDetail from '../ItemDetail/ItemDetail';
 import MenuForm from '../MenuForm/MenuForm';
 import BusinessContext from '../../utilities/BusinessContext';
+import CreateDisplay from '../CreateDisplay/CreateDisplay';
 import React, { useContext, useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import * as itemsAPI from '../../utilities/items-api';
@@ -75,7 +76,6 @@ export default function ItemList({ user, menus }) {
       setShowMenuForm(false)
     }
 
-
   return (
     <div className="ItemListContainer">
 
@@ -89,9 +89,6 @@ export default function ItemList({ user, menus }) {
           <div className="ShowMenuFormButton"><MenuForm user={user} handleCloseMenuForm={handleCloseMenuForm}  /></div>
         )}
 
-
-
-
       { menus ?
       <div className="MenuListButtonContainer">
         <button className="MenuListButton">ALL</button>
@@ -104,7 +101,6 @@ export default function ItemList({ user, menus }) {
         :
         <div>No Menus Yet</div>
         }
-
 
       { showItemForm && (
         <div><ItemForm user={user} menus={menus} handleAddItemClose={handleAddItemClose} /></div>
@@ -138,17 +134,12 @@ export default function ItemList({ user, menus }) {
               ))}
             </tbody>
           </table>
-
         </div>
-
       </div>
-
       :
-
       <div>Add items to view</div>
-
       }
-
+      <CreateDisplay items={items} setItems={setItems} menus={menus} user={user} />
     </div>
   );
 }

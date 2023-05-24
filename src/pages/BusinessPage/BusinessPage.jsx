@@ -7,6 +7,7 @@ import ItemList from '../../components/ItemList/ItemList'
 import DisplayPage from '../DisplayPage/DisplayPage'
 
 import './BusinessPage.css'
+import BusinessDetail from '../../components/BusinessDetail/BusinessDetail';
 
 
 export default function BusinessPage({ user }) {

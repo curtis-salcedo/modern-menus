@@ -2,11 +2,10 @@ import React, {useState, useRef, useContext} from 'react'
 import YouTube, {YouTubeProps} from 'react-youtube'
 
 import './DisplayPage.css'
-import BusinessPage from '../BusinessPage/BusinessPage'
-import ItemList from '../../components/ItemList/ItemList'
-import DisplayTemplate from '../../components/DisplayTemplate/DisplayTemplate'
-import ItemSelection from '../../components/ItemSelection/ItemSelection'
-import PreviewPage from '../../components/PreviewPage/PreviewPage'
+import BusinessPage from '../../pages/BusinessPage/BusinessPage'
+import ItemList from '../ItemList/ItemList'
+import DisplayTemplate from '../DisplayTemplate/DisplayTemplate'
+import ItemSelection from '../ItemSelection/ItemSelection'
 
 
 export default function DisplayPage({ user, business }) {
@@ -43,12 +42,19 @@ export default function DisplayPage({ user, business }) {
       autoplay: 1,
     },
   }
+
   return (
     <>
+    
     <div className="DisplayPageContainer">
       <h1>Display Page</h1>
-      <div>
-        <PreviewPage business={business} />
+      <div className="">
+        <div><DisplayTemplate user={user} business={business} /></div>
+
+            {/* <div className="DisplayVideoAd">
+              <YouTube videoId={videoId} opts={opts} />
+            </div> */}
+
       </div>
     </div>
     </>

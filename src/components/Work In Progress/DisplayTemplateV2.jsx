@@ -27,7 +27,6 @@ export default function DisplayTemplate({ user, business }) {
   // Template storage and reset form
   const [ loadTemplate, setLoadTemplate ] = useState(null)
   const [ updatedTemplate, setUpdatedTemplate ] = useState(null)
-
   const [ userTemplateForm, setUserTemplateForm] = useState({
     name: '',
     template: [
@@ -220,23 +219,7 @@ export default function DisplayTemplate({ user, business }) {
 
   return (
     <div className="DisplayTemplateContainer">
-      { !loadTemplate ? 
-      <button onClick={handleSubmit}>Save</button>
-      : 
-      <button onClick={handleUpdateSubmit}>Update</button>
-      }
-        { showItemList && (
-          <div className="DisplayItemListSelection">
-            <ItemSelection
-            handleAddItemToDisplayIndex={handleAddItemToDisplayIndex} handleCloseItemList={handleCloseItemList}
-            itemList={itemList} 
-            />
-          </div>
-        )}
-      <div>{renderTemplate()}</div>
-    <div className="Advertisement">
-      <YouTube videoId={videoId} opts={opts} />
-    </div>
+      
   </div>
   )
 }
