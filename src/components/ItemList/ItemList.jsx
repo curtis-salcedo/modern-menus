@@ -87,6 +87,8 @@ export default function ItemList({ user, menus }) {
 
       { menus ?
       <div className="MenuListButtonContainer">
+        <div className="MenuContainerItems">
+
         <div className="MenuListMenuTitle">Your Created Sub-Menus</div>
         {/* <button className="MenuListButton">ALL</button> */}
         {menus.map((m) => (
@@ -94,6 +96,7 @@ export default function ItemList({ user, menus }) {
             <button className="MenuListButton" onClick={() => handleMenuDetail(m._id)}>{m.name}</button>
           </div>
           ))}
+          </div>
       </div>
         :
         <div>No Menus Yet</div>

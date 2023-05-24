@@ -12,11 +12,16 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: column;
+  justify-content: center;
   border: .15em solid var(--tertiary-color);
   border-radius: 1vmin;
   width: 75%;
   margin-top: 2vh;
+}
+
+.MenuContainerItems {
+  display: flex;
+  flex-direction: row wrap;
 }
 
 .MenuListButton {
