@@ -2,22 +2,17 @@ const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
 
 const displaySchema = new Schema({
-  name: {type: String, required: true},
+  name: {type: String},
   template: {
-    type: [
+    userTemplate: [
       {  
-      displayItem: {
+      items: {
           type: mongoose.Schema.Types.ObjectId,
           ref: 'Item',
-          default: null,
         },
-      value: {type: Number, required: true},
-      style: {
-        backgroundColor: { type: 'String' },
-        color: { type: String },
-      },
     },
   ],
+},
   business: {
     type: mongoose.Schema.Types.ObjectId,
     ref: 'Business',
@@ -28,8 +23,6 @@ const displaySchema = new Schema({
     ref: 'User',
     required: true,
   },
-  default: [],
-},
 }, {
   timestamps: true,
 });

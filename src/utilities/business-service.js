@@ -84,17 +84,14 @@ export async function deleteItem(itemId) {
 
 // Logic and Business functions
 // Create display template
-export function generateTemplate(count) {
+export function generateTemplate() {
   const template = [];
   for (let i = 0; i <= 11; i++) {
+
     const item = {
-      displayItems: null,
-      position: index+1,
-      style: {
-        backgroundColor: "",
-        color: ""
-      }
+      displayItems: '',
     }
+
     template.push(item)
   }
   return template;

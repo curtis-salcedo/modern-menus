@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react'
+import { useNavigate } from 'react-router-dom';
 import YouTube from 'react-youtube'
 import * as businessAPI from '../../utilities/business-api';
 import * as menusAPI from '../../utilities/menus-api';
@@ -12,12 +13,17 @@ export default function DisplayTemplate({ user, business }) {
   // Identify the item being dragged to the display menu
   const [ draggedItem, setDraggedItem ] = useState(null)
   const [ menus, setMenus ] = useState(null)
+  // Filter list menus with all the children items
   const [ filteredList, setFilteredList ] = useState(null)
   const [ itemList, setItemList ] = useState(null)
   const [ showItemList, setShowItemList ] = useState(false)
+  // Used to get the basic template from business-services.js
   const [ template, setTemplate ] = useState(generateTemplate())
-  const [ userTempate, setUserTemplate ] = useState(null)
+  // Used to store the template object to database
+  const [ userTemplate, setUserTemplate ] = useState([])
+  // 0 index storage
   const [ itemIndex, setItemIndex ] = useState(null)
+  // Template storage and reset form
   const [ userTemplateForm, setUserTemplateForm] = useState({
     name: '',
     template: [
@@ -29,7 +35,7 @@ export default function DisplayTemplate({ user, business }) {
     business: business,
     user: user,
   })
-
+  const navigate = useNavigate();
 
   useEffect(() => {
     const fetchData = async () => {
@@ -57,53 +63,35 @@ export default function DisplayTemplate({ user, business }) {
     fetchData()
   }, [user, business])
 
-  // useEffect(() => {
-  //       // Get column headers
-  //       if (filteredList) {
-  //         const menuTitleArray = filteredList.map((arr) => ( arr.menu.name ))
-  //         setTitleArray(menuTitleArray)
-  //       }
-  //   }, [filteredList])
-
   // Handles for draggable items
   // Take dragged item and it's data to copy
   function handleDragStart(itemData) {
     setDraggedItem(itemData)
   }
-
   // Reset data to null for next drag and drop
   function handleDragStop() {
     setDraggedItem(null)
   }
-
   // Log out the item dragged to the menu
   function handleDrop() {
     if (draggedItem) {
       console.log('Dropped Item:', draggedItem)
     }
   }
-
-  // Handle menu category selector
-  function handleSelection(evt) {
-    const selection = evt.target
-    console.log(template)
-  }
-
   function handleItemList(evt) {
     const curIdx = evt.target.value
     setItemIndex(curIdx)
     return <ItemSelection />
   }
-  console.log(itemIndex)
-  
+  // Show item list when clicking add item
   function handleShowItemList() {
     setShowItemList(true)
   }
-
+  // Close item list when item selected and close button on ItemSelection.jsx
   function handleCloseItemList() {
     setShowItemList(false)
   }
-
+  // Handle to run multiple handles on "Add Item" in ItemSelection list
   function handleAddItemClick(evt) {
     handleItemList(evt)
     handleShowItemList(evt)
@@ -112,11 +100,56 @@ export default function DisplayTemplate({ user, business }) {
   function handleAddItemToDisplayIndex(evt) {
     // Returns item ID
     const itemId = evt.target.value
+    // Establish the cell value for it's part in the schema position array
+    const cellIdx = itemIndex
+    // Filter itemList to get the item matching the selected item
+    const selectedItem = itemList.find((item) => item._id === itemId)
+    // Set the item to the placeholder template array
+    const templateHolder = [ ...userTemplate ]
+    // Put the item object into the selected cell
+    templateHolder[cellIdx] = {
+      displayItems: selectedItem,
+      value: cellIdx,
+      style: '',
+    }
 
-    console.log(evt.target.value)
+    setUserTemplate( templateHolder )
+    handleCloseItemList();
   }
 
-  console.log(showItemList)
+  // async function handleChange(evt) {
+  //   const { name, value } = evt.target;
+  //   setUserTemplateForm({ ...userTemplateForm, [name]: value })
+  // }
+
+  // Handle to create a template / save a template
+  async function handleSubmit(evt) {
+    evt.preventDefault();
+    try {
+      const templateData = {
+        name: null,
+        template: {userTemplate},
+        business: business,
+        user: user,
+      }
+
+      await displaysAPI.createTemplate( templateData )
+      setUserTemplateForm({
+        name: '',
+        template: [
+          {
+            displayItem: '',
+            value: '',
+          }
+        ],
+        business: business,
+        user: user,
+      })
+    } catch (err) {
+      console.log('TemplateForm Create Error', err)
+    }
+    navigate('/')
+  }
 
   // Add video to use
   const [ videoId, setVideoId ] = useState('CKgKPGBa9EQ')
@@ -134,17 +167,16 @@ export default function DisplayTemplate({ user, business }) {
     if (template) {
       return (
         <div className="DisplayArea">
-        {template.map((item, idx) => (
+          {template.map((item, idx) => (
+            <div key={idx} className="DisplayCard">
+              { template[idx] ? (
+                <button onClick={handleAddItemClick} value={idx}>Add Content</button>
+              ) : (
+                <div className="DisplayCardTitle">{template[idx]}</div>
+              )}
 
-          <div key={idx} className="DisplayCard">
-            <div className="DisplayCardTitle"></div>
-            <div className="DisplayCardContent"></div>
-            <button onClick={handleAddItemClick} value={idx}>Add Content</button>
-
-
-
-          </div>
-        ))}
+            </div>
+          ))}
         </div>
       );
     }
@@ -152,12 +184,16 @@ export default function DisplayTemplate({ user, business }) {
 
   return (
     <div className="DisplayTemplateContainer">
+      <button onClick={handleSubmit}>Save</button>
         { showItemList && (
           <div className="DisplayItemListSelection">
-            <ItemSelection handleAddItemToDisplayIndex={handleAddItemToDisplayIndex} handleCloseItemList={handleCloseItemList} itemList={itemList} />
+            <ItemSelection
+            handleAddItemToDisplayIndex={handleAddItemToDisplayIndex} handleCloseItemList={handleCloseItemList}
+            itemList={itemList} 
+            />
           </div>
         )}
-      <div>{renderTemplate()}</div>
+        <div>{renderTemplate()}</div>
         <div className="Advertisement">
           <YouTube videoId={videoId} opts={opts} />
         </div>
