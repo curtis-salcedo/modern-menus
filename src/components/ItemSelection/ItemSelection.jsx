@@ -1,6 +1,5 @@
 import ItemForm from '../ItemForm/ItemForm';
 import ItemDetail from '../ItemDetail/ItemDetail';
-import MenuForm from '../MenuForm/MenuForm';
 import BusinessContext from '../../utilities/BusinessContext';
 import React, { useContext, useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
@@ -9,9 +8,9 @@ import * as menusAPI from '../../utilities/menus-api';
 
 import Draggable, {DraggableCore} from 'react-draggable';
 
-import './ItemList.css'
+import './ItemSelection.css'
 
-export default function ItemList({ user, menus }) {
+export default function ItemSelection({ user, menus, itemList, handleCloseItemList, handleAddItemToDisplayIndex }) {
   const { business, setBusiness } = useContext(BusinessContext)
   const [items, setItems] = useState(null)
   // const [menus, setMenus] = useState(menus)
@@ -67,53 +66,30 @@ export default function ItemList({ user, menus }) {
     navigate(`/menus/${menuId}`)
     }
   
-    function handleShowMenuForm() {
-      setShowMenuForm(true)
-    }
+    // function handleShowMenuForm() {
+    //   setShowMenuForm(true)
+    // }
   
-    function handleCloseMenuForm() {
-      setShowMenuForm(false)
-    }
+    // function handleCloseMenuForm() {
+    //   setShowMenuForm(false)
+    // }
 
 
   return (
     <div className="ItemListContainer">
 
-      { items ?
+      { itemList ?
       <div className="ItemListItems">
-        <div>
-          <button className="AddItemButton" onClick={handleAddItemButton}>Quick Add Item</button>
-          <button className="AddMenuButton" onClick={handleShowMenuForm}>Quick Add Sub-Menu</button>
-        </div>
-        { showMenuForm && (
-          <div className="ShowMenuFormButton"><MenuForm user={user} handleCloseMenuForm={handleCloseMenuForm}  /></div>
-        )}
 
-
-
-
-      { menus ?
-      <div className="MenuListButtonContainer">
-        <button className="MenuListButton">ALL</button>
-        {menus.map((m) => (
-          <div key={m._id}>
-            <button className="MenuListButton" onClick={() => handleMenuDetail(m._id)}>{m.name}</button>
-          </div>
-          ))}
-      </div>
-        :
-        <div>No Menus Yet</div>
-        }
-
-
-      { showItemForm && (
+      {/* { showItemForm && (
         <div><ItemForm user={user} menus={menus} handleAddItemClose={handleAddItemClose} /></div>
-      )}
+      )} */}
 
-        <div className="ItemContainer">
-          <table className="TableContainer">
+        <div className="ItemSelectionContainer">
+        <button onClick={handleCloseItemList}>Close</button>
+          <table className="">
             <thead>
-              <tr className="ItemRow">
+              <tr className="">
                 <th>Sub-Menu</th>
                 <th>Item Name</th>
                 <th>Item Description</th>
@@ -122,17 +98,14 @@ export default function ItemList({ user, menus }) {
               </tr>
             </thead>
             <tbody>
-            { items.map((item) => (
-              <tr className="ItemRow" key={item._id}>
+            { itemList.map((item) => (
+              <tr className="" key={item._id}>
                 <td>{item.menu.name}</td>
                 <td>{item.name}</td>
                 <td> {item.description}</td>
                 <td> ${item.price}</td>
-                <td className='ItemTableEditCell'>
-                <button className="ItemEditButton" onClick={() => handleItemDetail(item._id)}>Edit</button>
-              {/* <button className="ItemListButton" onClick={() => handleItemDetail(item._id)}>
-              {item.name}
-            </button> */}
+                <td className=''>
+                <button value={item._id} onClick={handleAddItemToDisplayIndex}>Add Item</button>
                 </td>
               </tr>
               ))}
@@ -145,7 +118,7 @@ export default function ItemList({ user, menus }) {
 
       :
 
-      <div>Add items to view</div>
+      <div>Add item to display</div>
 
       }
 

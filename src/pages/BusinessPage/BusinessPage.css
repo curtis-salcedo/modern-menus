@@ -1,5 +1,4 @@
 .BusinessPageContainer {
-  background-color: cyan;
   display: flex;
   flex-direction: column;
 }

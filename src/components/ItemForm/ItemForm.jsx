@@ -50,7 +50,7 @@ export default function ItemForm({ user, menus, handleAddItemClose }) {
       <form autoComplete="off" onSubmit={handleSubmit}>
         <div className="ItemFormSelect">
           <label>Menu</label>
-          <select name="menu" value={itemFormData.Menu} onChange={handleMenuChange} required>
+          <select name="menu" value={itemFormData.menu} onChange={handleMenuChange} required>
             {menus ? (
               menus.map((m) => (
                 <option key={m._id} value={m._id}>

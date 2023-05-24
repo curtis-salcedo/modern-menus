@@ -15,7 +15,6 @@ module.exports = {
 
 async function deleteMenu(req, res) {
   try {
-    console.log(req.body, req.params.id)
     const menu = await Menu.findByIdAndDelete(req.params.id)
     res.json(menu);
   } catch (err) {
@@ -34,7 +33,9 @@ async function show(req, res) {
 
 async function update(req, res) {
   try {
-    const menu = await Menu.findById(req.body._id);
+    const menu = await Menu.findById(req.body._id)
+    // Change menu name
+    menu.name = req.body.name || menu.name
     await menu.save()
     res.json(menu)
   } catch (err) {
@@ -57,6 +58,7 @@ async function index(req, res) {
 
 async function create(req, res) {
   try {
+    console.log(req.body)
     const newMenu = await Menu.create(req.body);
     const business = await Business.findOne({ _id: req.body.business })
     business.menus.push(newMenu._id);

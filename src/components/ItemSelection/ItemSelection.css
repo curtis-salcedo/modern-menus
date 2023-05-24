@@ -1,22 +1,10 @@
-.ItemListContainer {
+.ItemSelectionContainer {
   display: flex;
   flex-direction: column;
-  width: 90vw;
-}
-
-.ItemListItems {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-}
-
-.ItemContainer {
-  max-height: 25em;
+  width: 50vw;
+  max-height: 20vh;
+  background-color: gray;
   overflow-y: auto;
-}
-
-.ItemRow {
-  height: .1em;
 }
 
 .TableContainer {

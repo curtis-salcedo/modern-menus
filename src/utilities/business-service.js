@@ -1,6 +1,7 @@
 import * as businessAPI from './business-api';
 import * as menusAPI from './menus-api';
 import * as itemsAPI from './items-api';
+import * as displaysAPI from './displays-api';
 
 export async function getBusiness() {
   const business = await businessAPI.getBusiness()
@@ -79,4 +80,28 @@ export async function getItemDetail(itemId) {
 export async function deleteItem(itemId) {
   const deleteItem = await itemsAPI.deleteItem(itemId)
   return deleteItem
+}
+
+// Logic and Business functions
+// Create display template
+export function generateTemplate(count) {
+  const template = [];
+  for (let i = 0; i <= 11; i++) {
+    const item = {
+      displayItems: null,
+      position: index+1,
+      style: {
+        backgroundColor: "",
+        color: ""
+      }
+    }
+    template.push(item)
+  }
+  return template;
+}
+
+// Create a new template
+export async function createTemplate(templateFormData) {
+  const newTemplate = await displaysAPI.createTemplate(templateFormData)
+  return newTemplate
 }

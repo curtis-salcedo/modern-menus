@@ -12,8 +12,8 @@ export async function getMenus() {
 }
 
 // Update menus
-export async function updateMenu() {
-  return sendRequest(`${BASE_URL}/update`)
+export async function updateMenu(menuFormData) {
+  return sendRequest(`${BASE_URL}/:id/update`, 'PUT', menuFormData)
 }
 
 // Get details of the menu

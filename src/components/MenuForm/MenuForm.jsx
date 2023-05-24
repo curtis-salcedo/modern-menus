@@ -28,7 +28,7 @@ export default function MenuForm({ user, setUser, business, setBusiness, handleC
     } catch {
       
     }
-    window.location.reload();
+    navigate('/')
   };
 
 

@@ -42,12 +42,13 @@ export default function MenuDetail() {
   async function handleSubmit(evt) {
     evt.preventDefault();
     try {
+      console.log('menuFormData', menuFormData)
       await menusAPI.updateMenu( menuFormData )
       setMenuFormData( menuFormData )
     } catch (err) {
       console.log('Error deleting menu', err)
     }
-    window.location.reload()
+    navigate('/')
   }
 
   // Delete Handle

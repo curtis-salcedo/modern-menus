@@ -1,0 +1,37 @@
+   
+            { selectMenuId ? (
+              <div onClick={selectMenu}>{menus.find((menu) => menu._id === selectMenuId).name}</div>
+              ) : (
+                <div onClick={selectMenu}>Click to Add Menu</div>
+                )}
+
+              { showMenuList && (
+                menus.map((menu) => (
+                  <div onClick={() => handleMenuSelection(menu._id)} key={menu._id} value={menu._id}>
+                    {menu.name}
+                  </div>
+                ))
+                )}
+
+              {filteredList ? (
+                filteredList
+                .filter((arr) => arr.menu._id === selectMenuId).map((arr) =>
+                arr.items.map((item) => (
+                  <div key={item._id} className="DisplayItemTemplate">
+                        <div>{item.name}</div>
+                        <div>{item.price}</div>
+                        <div>{item.description}</div>
+                      </div>
+                    ))
+                    )
+                    ) : (
+                      <div>none</div>
+                      )}
+
+            <div className="DisplayMenuTitle">
+              { titleArray ? titleArray[1] : 'Loading title' }
+            </div>
+
+              <div className="DisplayMenuTitle">
+                { titleArray ? titleArray[2] : 'Loading title' }
+              </div>

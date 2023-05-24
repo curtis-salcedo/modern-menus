@@ -1,5 +1,4 @@
 .MenuListContainer {
-  background-color: rgb(107, 74, 74);
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -19,6 +18,8 @@
   align-items: center;
   height: 2em;
   font-size: 1em;
+  max-width: 10em;
+  overflow: hidden;
 }
 
 .AddMenuButton {

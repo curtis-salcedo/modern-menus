@@ -2,9 +2,7 @@ import React, { useEffect, useState, useContext } from 'react';
 import { Routes, Route } from 'react-router-dom';
 import { getUser } from '../../utilities/users-service';
 import { getBusiness, index } from '../../utilities/business-api';
-
 import BusinessContext from '../../utilities/BusinessContext';
-
 import AuthPage from '../AuthPage/AuthPage';
 import BusinessPage from '../BusinessPage/BusinessPage';
 import BusinessDetail from '../../components/BusinessDetail/BusinessDetail';
@@ -13,7 +11,6 @@ import NavBar from '../../components/NavBar/NavBar';
 import BusinessSignUpForm from '../../components/BusinessSignUpForm/BusinessSignUpForm';
 import ItemDetail from '../../components/ItemDetail/ItemDetail';
 import MenuDetail from '../../components/MenuDetail/MenuDetail';
-
 
 import './App.css';
 

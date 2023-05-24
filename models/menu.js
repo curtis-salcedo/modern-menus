@@ -3,13 +3,16 @@ const Schema = mongoose.Schema;
 
 const menuSchema = new Schema({
   name: {type: String, required: true},
-  items: [
-    {
-    type: mongoose.Schema.Types.ObjectId,
-    ref: 'Item',
-    default: null
+  items: {
+    type: [
+      {
+        type: mongoose.Schema.Types.ObjectId,
+        ref: 'Item',
+        default: null,
+      },
+    ],
+    validate: [limitItemArray, '{PATH} exceeds the limit of 8'],
   },
-],
   business: {
     type: mongoose.Schema.Types.ObjectId,
     ref: 'Business',
@@ -24,5 +27,8 @@ const menuSchema = new Schema({
   timestamps: true,
 });
 
+function limitItemArray(val) {
+  return val.length <= 8
+}
 
 module.exports = mongoose.model('Menu', menuSchema);

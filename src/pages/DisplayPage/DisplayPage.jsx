@@ -4,6 +4,8 @@ import YouTube, {YouTubeProps} from 'react-youtube'
 import './DisplayPage.css'
 import BusinessPage from '../BusinessPage/BusinessPage'
 import ItemList from '../../components/ItemList/ItemList'
+import DisplayTemplate from '../../components/DisplayTemplate/DisplayTemplate'
+import ItemSelection from '../../components/ItemSelection/ItemSelection'
 
 
 export default function DisplayPage({ user, business }) {
@@ -29,13 +31,12 @@ export default function DisplayPage({ user, business }) {
     }
   }
 
-
-  // Add video to use state
+  // Add video to use
   const [ videoId, setVideoId ] = useState('CKgKPGBa9EQ')
 
   const opts = {
-    height: '180',
-    width: '320',
+    height: 'auto',
+    width: 'auto',
     playerVars: {
       // https://developers.google.com/youtube/player_parameters
       autoplay: 1,
@@ -46,47 +47,13 @@ export default function DisplayPage({ user, business }) {
     <>
     
     <div className="DisplayPageContainer">
-      <h1>Menu Edit Layout Page</h1>
-      <div className="DisplayPageMenu">
+      <h1>Display Page</h1>
+      <div className="">
+        <div><DisplayTemplate user={user} business={business} /></div>
 
-        <div className="DisplayRow">
-          <div className="DisplayMenuListContainer">
-          <div className="DisplayRowItems">
-              <div>Item 1</div>
-              <div>Item 1</div>
-              <div>Item 1</div>
-            </div>
-          </div>
-        </div>
-
-        <div className="DisplayRow">
-          <div className="DisplayMenuListContainer">
-            <div className="DisplayRowItems">
-              <div>Item 1</div>
-              <div>Item 1</div>
-              <div>Item 1</div>
-            </div>
-            <div className="DisplayVideoAd">
+            {/* <div className="DisplayVideoAd">
               <YouTube videoId={videoId} opts={opts} />
-            </div>
-          </div>
-        </div>
-
-        <div className="DisplayRow">
-          <div className="DisplayMenuListContainer">
-          <div className="DisplayRowItems">
-              <div>Item 1</div>
-              <div>Item 1</div>
-              <div>Item 1</div>
-            </div>
-          </div>
-        </div>
-
-
-        {/* <div onDrop={handleDrop}>
-          <div>Drop Area</div>
-        </div> */}
-
+            </div> */}
 
       </div>
     </div>
