@@ -1,0 +1,42 @@
+.AuthContainer {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.AuthWelcome {
+  text-align: center;
+  font-size: 4vh;
+}
+
+.AuthNavBarLogo {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 8vh;
+  margin-left: 15vw;
+  margin-right: 15vw;
+  font-weight: bold;
+  border: 3px solid var(--secondary-color);
+  width: 60vw;
+}
+
+.AuthNavBarOne {
+  color: var(--main-color);
+}
+
+.AuthNavBarTwo {
+  color: var(--primary-color);
+}
+
+.SignUp {
+  border: solid .25vmin var(--primary-color);
+  border-radius: 1vmin;
+  margin-top: 3vh;
+  width: 60vw;
+}
+
+.SignUp input {
+  border: solid .1vh var(--main-color)
+}

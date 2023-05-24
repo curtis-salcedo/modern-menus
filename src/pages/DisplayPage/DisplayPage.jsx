@@ -13,7 +13,6 @@ export default function DisplayPage({ user, business }) {
   // Identify the item being dragged to the display menu
   const [ draggedItem, setDraggedItem ] = useState(null)
 
-
   // Handles for draggable items
   // Take dragged item and it's data to copy
   function handleDragStart(itemData) {
@@ -48,7 +47,7 @@ export default function DisplayPage({ user, business }) {
     <div className="DisplayPageContainer">
       <h1>Display Page</h1>
       <div>
-        <PreviewPage business={business} />
+        <PreviewPage user={user} business={business} />
       </div>
     </div>
     </>

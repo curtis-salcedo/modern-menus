@@ -52,6 +52,7 @@ export default function ItemDetail() {
     } catch (err) {
       console.log('ItemDetail handleSubmit error', err)
     }
+    navigate('/')
   }
 
   async function handleDeleteItem(evt) {

@@ -4,58 +4,104 @@ import MenuForm from '../MenuForm/MenuForm';
 import PreviewPage from '../PreviewPage/PreviewPage';
 import BusinessContext from '../../utilities/BusinessContext';
 import React, { useContext, useState, useEffect } from 'react';
-import { useNavigate } from 'react-router-dom';
+import YouTube from 'react-youtube'
+import { useNavigate, useLocation } from 'react-router-dom';
 import * as itemsAPI from '../../utilities/items-api';
 import * as menusAPI from '../../utilities/menus-api';
+
+import './PreviewPage.css'
+
 export default function CreateDisplay({ user }) {
-  
+
   const { business, setBusiness } = useContext(BusinessContext)
-  const [ sort, setSort ] = useState('name')
-  const [ filter, setFilter ] = useState('')
   const [ items, setItems ] = useState(null)
-  const navigate = useNavigate();
+  const [ menus, setMenus ] = useState(null)
+  const [ showAdvertisement, setShowAdvertisement ] = useState(true)
+  const navigate = useNavigate()
+  const location = useLocation()
 
-
-  // Fetch items that match logged in user
   useEffect(() => {
-    const fetchItems = async () => {
+    const fetchMenus = async () => {
       if (business) {
+        const menuList = await menusAPI.getMenus();
+        const userMenus = menuList.filter((m) => m.user === user._id)
+        setMenus(userMenus)
+
         const itemList = await itemsAPI.getItems();
         const userItems = itemList.filter((item) => item.user === user._id)
         setItems(userItems)
       }
     }
-    fetchItems()
+    fetchMenus()
+  }, [business, user])
+
+  // YouTube API
+  const [ videoId, setVideoId ] = useState('CKgKPGBa9EQ')
+
+  const opts = {
+    height: 'auto',
+    width: 'auto',
+    playerVars: {
+      // https://developers.google.com/youtube/player_parameters
+      autoplay: 1,
+    },
+  }
+
+  useEffect(function () {
+    function showAdvertisement() {
+      setShowAdvertisement(true);
+      setTimeout(hideAdvertisement, 10000);
+    }
+    function hideAdvertisement() {
+      setShowAdvertisement(false);
+      setTimeout(showAdvertisement, 10000);
+    }
+    showAdvertisement();
+    function resetClock() {
+      clearTimeout();
+    }
+    return resetClock;
   }, [])
 
-  
+  function handleExitPage() {
+    if (location.pathname === '/preview')
+    navigate('/')
+  }
 
   return (
-    <div className="PreviewContainer">
-      PREVIEW PAGE AREA
-      <button className="GenerateMenuButton">Exit Preview</button>
+
+  <div className="PreviewContainer">
+      {location.pathname === '/preview' && 
+        <div>
+          <button className="ExitPreviewButton" onClick={handleExitPage}>Exit Preview</button>
+        </div>
+        }
       { items ?
-          <table className="TableContainer">
-            <thead>
-              <tr className="ItemRow">
-                <th>Item Name</th>
-                <th>Item Description</th>
-                <th>Item Price</th>
-              </tr>
-            </thead>
-            <tbody>
-            { items.map((item) => (
-              <tr className="ItemRow" key={item._id}>
-                <td>{item.name}</td>
-                <td> {item.description}</td>
-                <td> ${item.price}</td>
-              </tr>
-              ))}
-            </tbody>
-          </table>
-      :
-      <div>Add items to view</div>
-      }
+        <div className="PreviewCardContainer {
+          ">
+          { items.map((item) => (
+            <div className="PreviewCard" key={item._id}>
+              <div className="PreviewLeft">
+                <div className="PreviewName"> {item.name}</div>
+                <div className="PreviewDescription"> {item.description}</div>
+              </div>
+              <div className="PreviewPrice"> ${item.price}</div>
+            </div>
+            ))}
+      </div>
+        :
+        <div>No Items</div>
+        }
+        <div className="AdContainer">
+
+        { showAdvertisement ? 
+          <div className="AdvertisementPlaceholder">Visit us at www.yourbusiness.com</div>
+          :
+          <div className="Advertisement">
+            <YouTube videoId={videoId} opts={opts} />
+          </div>
+        }
+        </div>
 
     </div>
   );

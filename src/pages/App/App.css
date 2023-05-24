@@ -1,15 +1,9 @@
-:root {
-  --main-color: #003366;
-  --primary-color: #ff0000;
-  --secondary-color: #006600;
-  --tertiary-color: #600066;
-  --accent-color: #ff4500;
-}
-
 .App {
   text-align: center;
   display: flex;
   flex-direction: column;
+  font-family: 'Poppins', sans-serif;
+  background-color: white;
 }
 
 .App-logo {
@@ -30,7 +24,6 @@
   align-items: center;
   justify-content: center;
   font-size: calc(10px + 2vmin);
-  color: white;
 }
 
 .App-link {

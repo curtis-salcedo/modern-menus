@@ -1,13 +1,10 @@
 /* CSS Custom Properties */
 :root {
-  --white: #FFFFFF;
-  --tan-1: #FBF9F6;
-  --tan-2: #E7E2DD;
-  --tan-3: #E2D9D1;
-  --tan-4: #D3C1AE;
-  --orange: #F67F00;
-  --text-light: #968c84;
-  --text-dark: #615954;
+  --main-color: #cc0000;
+  --primary-color: #000099;
+  --secondary-color: #cccc00;
+  --tertiary-color: #004d00;
+  --accent-color: #000000;
 }
 
 *, *:before, *:after {
@@ -21,7 +18,6 @@ body {
   sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  background-color: var(--tan-4);
   padding: 2vmin;
   height: 100vh;
 }
@@ -120,14 +116,14 @@ input:focus {
 button, a.button {
   margin: 1vmin;
   padding: 1vmin;
-  color: var(--white);
-  background-color: var(--orange);
+  color: var(--primary-color);
+  background-color: var(--secondary-color);
   font-size: 2vmin;
   font-weight: bold;
   text-decoration: none;
   text-align: center;
-  border: .1vmin solid var(--tan-2);
-  border-radius: .5vmin;
+  border: solid .15em var(--main-color);
+  border-radius: .25em;
   outline: none;
   cursor: pointer;
 }
@@ -144,10 +140,19 @@ button.btn-xs {
 
 button:disabled, form:invalid button[type="submit"] {
   cursor: not-allowed;
-  background-color: var(--tan-4);
+  background-color: #cccc00;
 }
 
 button[type="submit"] {
   grid-column: span 2;
   margin: 1vmin 0 0;
+  color: var(--primary-color);
+  background-color: #004d00;
+  border: solid .15em var(--main-color);
+  border-radius: .25em;
+  font-weight: bold;
 }
+
+
+
+

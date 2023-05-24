@@ -11,16 +11,17 @@
 }
 
 .ItemContainer {
-  max-height: 25em;
+  max-height: 30em;
   overflow-y: auto;
 }
 
-.ItemRow {
-  height: .1em;
-}
-
 .TableContainer {
+  background-color: white;
   width: 85vw;
+  border: .1em solid black;
+  border-radius: 1vmin;
+  width: 100%;
+  padding: 1em;
 }
 
 .TableContainer th {
@@ -31,23 +32,34 @@
 .TableContainer td {
   text-align: left;
   border-bottom: .15em solid var(--primary-color);
+  height: 3em;
 }
 
 .AddItemButton {
-  text-align: center;
+  color: var(--main-color);
+  background-color: white;
+  display: flex;
   justify-content: center;
-  width: 15em;
+  align-items: center;
+  border: .15em solid var(--main-color);
+  text-align: center;
+  border-radius: .25em;
+  width: 12em;
   height: 2em;
 }
 
 .ItemTableEditCell {
-  border-radius: .25em;
-  font-size: 1em;
-  width: 6em;
-  height: .75em;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: auto;
+  flex-grow: 1;
+  border: none;
 }
 
+
+
 .ItemEditButton {
-  font-size: 1em;
-  height: 1.25em;
+  color: var(--main-color);
+  border: .15em solid var(--main-color);
 }

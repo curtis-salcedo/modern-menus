@@ -81,17 +81,14 @@ export default function ItemList({ user, menus }) {
 
       { items ?
       <div className="ItemListItems">
-        <div>
-          <button className="AddItemButton" onClick={handleAddItemButton}>Quick Add Item</button>
-          <button className="AddMenuButton" onClick={handleShowMenuForm}>Quick Add Sub-Menu</button>
-        </div>
         { showMenuForm && (
           <div className="ShowMenuFormButton"><MenuForm user={user} handleCloseMenuForm={handleCloseMenuForm}  /></div>
         )}
 
       { menus ?
       <div className="MenuListButtonContainer">
-        <button className="MenuListButton">ALL</button>
+        <div className="MenuListMenuTitle">Your Created Sub-Menus</div>
+        {/* <button className="MenuListButton">ALL</button> */}
         {menus.map((m) => (
           <div key={m._id}>
             <button className="MenuListButton" onClick={() => handleMenuDetail(m._id)}>{m.name}</button>
@@ -101,6 +98,11 @@ export default function ItemList({ user, menus }) {
         :
         <div>No Menus Yet</div>
         }
+        <div>
+          <button className="AddItemButton" onClick={handleAddItemButton}>Quick Add Item</button>
+          <button className="AddMenuButton" onClick={handleShowMenuForm}>Quick Add Sub-Menu</button>
+        </div>
+
 
       { showItemForm && (
         <div><ItemForm user={user} menus={menus} handleAddItemClose={handleAddItemClose} /></div>
@@ -114,7 +116,7 @@ export default function ItemList({ user, menus }) {
                 <th>Item Name</th>
                 <th>Item Description</th>
                 <th>Item Price</th>
-                <th></th>
+
               </tr>
             </thead>
             <tbody>
@@ -124,12 +126,13 @@ export default function ItemList({ user, menus }) {
                 <td>{item.name}</td>
                 <td> {item.description}</td>
                 <td> ${item.price}</td>
-                <td className='ItemTableEditCell'>
-                <button className="ItemEditButton" onClick={() => handleItemDetail(item._id)}>Edit</button>
+                <div className='ItemTableEditCell'>
+                  <button className="ItemEditButton" onClick={() => handleItemDetail(item._id)}>Edit</button>
+
               {/* <button className="ItemListButton" onClick={() => handleItemDetail(item._id)}>
               {item.name}
             </button> */}
-                </td>
+                </div>
               </tr>
               ))}
             </tbody>

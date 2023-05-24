@@ -13,6 +13,18 @@
   height: 45px;
   width: auto;
   font-size: 2em;
+  font-weight: bold;
+  border: 3px solid var(--secondary-color);
+  padding-left: 3px;
+  padding-right: 3px;
+}
+
+.NavBarOne {
+  color: var(--main-color);
+}
+
+.NavBarTwo {
+  color: var(--primary-color);
 }
 
 .NavBarLinks {
@@ -21,14 +33,15 @@
 }
 
 .NavBarLinks a {
-  background-color: var(--secondary-coloor);
   display: flex;
   justify-content: center;
   align-items: center;
   margin-right: .75em;
-  border: 2px solid var(--primary-color);
-  border-radius: 2vmin;
-  width: 125px;
+  border: 2px solid var(--main-color);
+  border-radius: 1vmin;
+  padding-left: .5em;
+  padding-right: .5em;
   height: 35px;
   text-decoration: none;
+  font-weight: bold;
 }

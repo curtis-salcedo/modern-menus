@@ -18,7 +18,10 @@ export default function NavBar({ user, setUser }) {
 
     <div className="NavBarContainer">
 
-      <div className="NavBarLogo">Modern Menus</div>
+      <div className="NavBarLogo">
+        <span className="NavBarOne">Modern</span> 
+        <span className="NavBarTwo">Menus</span>
+      </div>
 
       <div className="NavBarLinks">
         {business && (

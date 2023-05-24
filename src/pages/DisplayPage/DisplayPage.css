@@ -1,5 +1,4 @@
 .DisplayPageContainer {
-  background-color: green;
   display: flex;
   flex-direction: column;
   height: 80vh

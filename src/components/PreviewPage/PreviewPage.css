@@ -1,4 +1,96 @@
 .PreviewContainer {
-  background-color: pink;
   display: flex;
+  flex-direction: column;
+  height: 100vh;
+  position: relative;
+}
+
+.ExitPreviewButton {
+  color: var(--primary-color);
+  background-color: var(--secondary-color);
+  text-align: center;
+  height: 2.5em;
+  width: 15em;
+  font-weight: bold;
+  border-radius: .25em;
+  border: solid .15em var(--main-color)
+}
+
+.PreviewCardContainer {
+  display: flex;
+  flex-flow: column wrap;
+}
+
+.PreviewContainerWithAd {
+  display: flex;
+  flex-flow: column wrap;
+  height: 85vh;
+  max-height: 85vh;
+  overflow: hidden;
+  margin: 1vmin;
+  border: 1px black solid;
+}
+
+.PreviewCard {
+  display: flex;
+  justify-content: space-between;
+  align-items: end;
+  flex-direction: row;
+  width: 40vw;
+  min-height: 10vh;
+  max-height: 10vh;
+  border-bottom: .1vmin solid black;
+  margin: 2vmin;
+  padding-bottom: .5vmin;
+}
+
+.PreviewName {
+  color: var(--primary-color);
+  background-color: white;
+  text-align: left;
+  font-weight: bold;
+  font-size: 2.75vh;
+}
+
+.PreviewLeft {
+  display: flex;
+  flex-direction: column;
+}
+
+.PreviewDescription {
+  text-align: left;
+  font-size: 2vh;
+  margin-left: 2vmin;
+}
+
+.PreviewPrice {
+  background-color: orange;
+  text-align: left;
+  align-self: center;
+  font-size: 3vh;
+
+}
+
+.AdContainer {
+  display: flex;
+  justify-content: center;
+  position: absolute;
+  bottom: 0;
+  height: 17vh;
+  width: 100%;
+}
+
+.Advertisement {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+}
+
+.AdvertisementPlaceholder {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+
 }

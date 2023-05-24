@@ -11,6 +11,7 @@ import NavBar from '../../components/NavBar/NavBar';
 import BusinessSignUpForm from '../../components/BusinessSignUpForm/BusinessSignUpForm';
 import ItemDetail from '../../components/ItemDetail/ItemDetail';
 import MenuDetail from '../../components/MenuDetail/MenuDetail';
+import PreviewPage from '../../components/PreviewPage/PreviewPage';
 
 import './App.css';
 
@@ -29,9 +30,10 @@ export default function App() {
               <Route path="/" element={<BusinessPage user={user} />} />
               <Route path="/:id" element={<BusinessDetail user={user} />} />
               <Route path="/display" element={<DisplayPage user={user} />} />
-              <Route path="/items/:itemId" element={<ItemDetail />} ></Route>
-              <Route path="/menus/:menuId" element={<MenuDetail />} ></Route>
-              <Route path="/displays/:displaysId" element={<MenuDetail />} ></Route>
+              <Route path="/items/:itemId" element={<ItemDetail />} user={user} ></Route>
+              <Route path="/menus/:menuId" element={<MenuDetail />} user={user} ></Route>
+              <Route path="/displays/:displaysId" element={<MenuDetail user={user} />} ></Route>
+              <Route path="/preview" element={<PreviewPage user={user} />} ></Route>
             </Routes>
             </>
             : 

@@ -7,8 +7,16 @@
   display: flex;
   justify-content: center;
 }
+
 .BusinessPageMenuButton button {
+  color: var(--primary-color);
+  background-color: var(--secondary-color);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 2.5em;
+  width: 15em;
+  font-weight: bold;
   border-radius: .25em;
-  height: 40px;
-  width: 250px;
+  border: solid .15em var(--main-color)
 }
