@@ -61,10 +61,10 @@
   text-align: left;
   font-size: 2vh;
   margin-left: 2vmin;
+  margin-top: 1vmin;
 }
 
 .PreviewPrice {
-  background-color: orange;
   text-align: left;
   align-self: center;
   font-size: 3vh;

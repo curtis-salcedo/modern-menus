@@ -2,15 +2,17 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  border-radius: .5em;
   margin-bottom: 1em;
 }
 
 .MenuFormContainer form {
+  background-color: white;
   border: solid .15em var(--primary-color);
+  border-radius: 1vmin;
   display: flex;
   flex-direction: column;
-  width: 40em;
+  width: auto;
+  padding: 2vmin;
 }
 
 .MenuFormContainer form label {
@@ -29,9 +31,9 @@
   border-radius: .5vmin;
   height: 2em;
   width: 15em;
+  border: solid .15em var(--primary-color);
 }
 
 .MenuFormButtons button {
-  width: 6em;
-  height: 2em;
+
 }

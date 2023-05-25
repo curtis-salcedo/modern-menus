@@ -81,9 +81,6 @@ export default function ItemList({ user, menus }) {
 
       { items ?
       <div className="ItemListItems">
-        { showMenuForm && (
-          <div className="ShowMenuFormButton"><MenuForm user={user} handleCloseMenuForm={handleCloseMenuForm}  /></div>
-        )}
 
       { menus ?
       <div className="MenuListButtonContainer">
@@ -102,8 +99,11 @@ export default function ItemList({ user, menus }) {
         <div>No Menus Yet</div>
         }
         <div>
-          <button className="AddItemButton" onClick={handleAddItemButton}>Quick Add Item</button>
           <button className="AddMenuButton" onClick={handleShowMenuForm}>Quick Add Sub-Menu</button>
+        { showMenuForm && (
+          <div className="ShowMenuFormButton"><MenuForm user={user} handleCloseMenuForm={handleCloseMenuForm}  /></div>
+        )}
+          <button className="AddItemButton" onClick={handleAddItemButton}>Quick Add Item</button>
         </div>
 
 

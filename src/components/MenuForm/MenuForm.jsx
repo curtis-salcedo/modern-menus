@@ -28,7 +28,7 @@ export default function MenuForm({ user, setUser, business, setBusiness, handleC
     } catch {
       
     }
-    navigate('/')
+    window.location.reload()
   };
 
 
@@ -54,7 +54,7 @@ export default function MenuForm({ user, setUser, business, setBusiness, handleC
           
         </form>
 
-          <button onSubmit={handleMenuDetail} type="submit">FIX BUTTON TO EDIT MENU!</button>
+          {/* <button onSubmit={handleMenuDetail} type="submit">FIX BUTTON TO EDIT MENU!</button> */}
       <div>
       </div>
 

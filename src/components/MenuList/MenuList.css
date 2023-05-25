@@ -33,7 +33,7 @@
   align-items: center;
   max-height: 2.5em;
   font-size: 1em;
-  max-width: 10em;
+  max-width: 15em;
   overflow: hidden;
 }
 
@@ -51,9 +51,11 @@
 }
 
 .MenuListMenuTitle {
+  display: flex;
+  justify-content: center;
+  align-items: center;
   font-weight: bold;
   color: var(--primary-color);
-  margin-top: .75em;
   font-size: 1em;
 }
 

@@ -75,7 +75,7 @@ export default function MenuDetail() {
       </form>
 
       <form onSubmit={handleDeleteMenu}>
-        <button type="AddItemButton">Delete Item</button>
+        <button type="AddItemButton">Delete Sub-Menu</button>
       </form>
     </div>
   )

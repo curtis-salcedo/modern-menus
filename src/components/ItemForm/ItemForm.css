@@ -4,6 +4,7 @@
   border: solid .15em var(--primary-color);
   border-radius: .5em;
   margin-bottom: 1em;
+  background-color: white;
 }
 
 .ItemFormContainer form {
@@ -21,6 +22,10 @@
   text-align: center;
 }
 
+.ItemDescriptionInput {
+  height: 85%;
+}
+
 .ItemFormInputs  {
   display: flex;
   flex-direction: row;
@@ -29,18 +34,8 @@
 
 .ItemFormInputs input {
   border-radius: .5vmin;
-  height: 2em;
-  width: 15em;
-}
-
-.ItemFormInputs textarea {
-  border-radius: .5vmin;
-  height: 7em;
-  width: 25em;
-  max-height: 7em;
-  max-width: 25em;
-  min-height: 7em;
-  min-width: 25em;
+  width: 100%;
+  border: solid .15em var(--primary-color);
 }
 
 .ItemFormButtons button {
