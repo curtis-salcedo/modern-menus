@@ -64,6 +64,10 @@ export default function MenuDetail() {
     }
   }
 
+  function handleCancel() {
+    navigate('/')
+  }
+
   return (
     <div className="MenuDetailContainer">
       <form autoComplete="off" onSubmit={handleSubmit}>
@@ -77,6 +81,7 @@ export default function MenuDetail() {
       <form onSubmit={handleDeleteMenu}>
         <button type="AddItemButton">Delete Sub-Menu</button>
       </form>
+      <button onClick={handleCancel}>Cancel</button>
     </div>
   )
 }

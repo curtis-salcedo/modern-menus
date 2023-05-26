@@ -16,3 +16,9 @@
   border: solid .25vmin var(--main-color);
   width: 75%;
 }
+
+.EditItemButtonContainer {
+  display: flex;
+  justify-content: space-between;
+  flex-direction: row;
+}

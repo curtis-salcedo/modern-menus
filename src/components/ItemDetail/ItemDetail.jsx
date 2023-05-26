@@ -72,6 +72,7 @@ export default function ItemDetail() {
   return (
     <div className="ItemDetailContainer">
       <form autoComplete="off" onSubmit={handleSubmit}>
+          <label>Item Menu</label>
         <select name="menu" value={itemFormData.Menu} onChange={handleChange} required>
           {menus ? (
             menus.map((m) => (
@@ -92,12 +93,14 @@ export default function ItemDetail() {
         <label>Item Price</label>
         <input type="text" name="price" value={itemFormData.price} onChange={handleChange} required />
 
-      <button onClick={handleCancel}>Cancel</button>
-        <button type="AddItemButton">Update Item</button>
       </form>
+      <div className="EditItemButtonContainer">
       <form onSubmit={handleDeleteItem}>
         <button type="AddItemButton">Delete Item</button>
       </form>
+        <button type="AddItemButton">Update Item</button>
+        <button onClick={handleCancel}>Cancel</button>
+      </div>
     </div>
   )
 }
