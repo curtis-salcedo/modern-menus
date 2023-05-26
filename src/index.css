@@ -147,7 +147,6 @@ button[type="submit"] {
   grid-column: span 2;
   margin: 1vmin 0 0;
   color: var(--primary-color);
-  background-color: #004d00;
   border: solid .15em var(--main-color);
   border-radius: .25em;
   font-weight: bold;

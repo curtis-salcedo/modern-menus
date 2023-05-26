@@ -65,6 +65,9 @@ export default function ItemDetail() {
       console.log('Error deleting the item', err)
     }
   }
+  function handleCancel() {
+    navigate('/')
+  }
 
   return (
     <div className="ItemDetailContainer">
@@ -89,6 +92,7 @@ export default function ItemDetail() {
         <label>Item Price</label>
         <input type="text" name="price" value={itemFormData.price} onChange={handleChange} required />
 
+      <button onClick={handleCancel}>Cancel</button>
         <button type="AddItemButton">Update Item</button>
       </form>
       <form onSubmit={handleDeleteItem}>
