@@ -35,8 +35,8 @@ export default function BusinessSignUpForm({ user, setUser }) {
       await usersAPI.updateUser(updatedUser)
       await menusAPI.createMenu(menu)
       setUser(updatedUser)
-    } catch {
-    
+    } catch (err) {
+      console.log('Business Creation Error', err)
     }
   };
 

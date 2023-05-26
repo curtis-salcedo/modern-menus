@@ -93,12 +93,12 @@ export default function ItemDetail() {
         <label>Item Price</label>
         <input type="text" name="price" value={itemFormData.price} onChange={handleChange} required />
 
+        <button type="AddItemButton">Update Item</button>
       </form>
       <div className="EditItemButtonContainer">
       <form onSubmit={handleDeleteItem}>
         <button type="AddItemButton">Delete Item</button>
       </form>
-        <button type="AddItemButton">Update Item</button>
         <button onClick={handleCancel}>Cancel</button>
       </div>
     </div>
