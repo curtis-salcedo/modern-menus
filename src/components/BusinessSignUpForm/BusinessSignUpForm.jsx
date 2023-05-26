@@ -67,7 +67,7 @@ export default function BusinessSignUpForm({ user, setUser }) {
             <input type="text" name="name" value={formData.name} onChange={handleChange} placeholder='Modern Menus' required />
           </div>
           <div className="BusinessFormButton">
-            <button type="submit">Register Business</button>
+            <button className="AddBusinessButton" type="submit">Register Business</button>
           </div>
         </form>
 

@@ -23,6 +23,8 @@
 }
 
 .BusinessFormContainer input{
+  border: solid .1vmin var(--primary-color);
+  margin-left: 2vw;
 
 }
 
@@ -46,6 +48,10 @@
 .BusinessFormInput {
   display: flex;
   flex-direction: row;
-  justify-content: space-evenly;
+  justify-content: space-around;
   align-items: center;
+}
+
+.AddBusinessButton {
+  font-size: 1.5vh;
 }

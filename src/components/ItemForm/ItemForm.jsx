@@ -22,13 +22,13 @@ export default function ItemForm({ user, menus, handleAddItemClose }) {
   function handleMenuChange(evt) {
     const { value } = evt.target;
     const menu = menus.find((m) => m._id === value);
-    console.log(menu)
     setItemFormData({ ...itemFormData, menu });
   }
 
   async function handleSubmit(evt) {
     evt.preventDefault();
     try {
+      console.log(itemFormData.menu)
       await itemsAPI.createItem( itemFormData )
       setItemFormData({ 
         name: '',
