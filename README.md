@@ -15,9 +15,6 @@
   ### www.curtissalcedo.com
 
   [![LinkedIn Badge](https://img.shields.io/badge/-@curtissalcedo-blue?style=flat&logo=Linkedin&logoColor=black)](https://www.linkedin.com/in/curtis-salcedo/)
-  
-
-  ### [Link To Trello Board](https://trello.com/b/vLRbYAcx/modern-menus)
 
 </div>
 
