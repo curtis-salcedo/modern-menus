@@ -20,7 +20,7 @@
 
 # Description
 
-This Modern Digital Menu Application is an open-source, web-based solution designed to help businesses showcase their products and enhance their overall customer experience. With customizable menus and targeted advertisements, this application offers a powerful platform for promoting your business's offerings and driving sales.
+This Modern Digital Menu Application is an open-source, web-based solution designed to help businesses showcase their products and enhance their overall customer experience. With customizable menus and targeted advertisements, this application offers a powerful platform for promoting your business's offerings and driving sales. Contact me to get started today!
 
 # Getting Started
 ## Instructions
